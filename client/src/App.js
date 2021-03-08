@@ -3,22 +3,14 @@ import { Link, Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import Home from "./Home";
 import NotFound from "./NotFound";
 import Auction from "./Auction";
+import Header from "./Header";
+import NoticeBoard from "./NoticeBoard";
 
 function App() {
   return (
     <Router>
-      <header>
-        <Link to="/">
-          <button>Home</button>
-        </Link>
-        <Link to="/auction">
-          <button>auction</button>
-        </Link>
-        <Link to="/users">
-          <button>Users</button>
-        </Link>
-      </header>
-      <hr />
+      <Header />
+      <NoticeBoard />
       <main>
         <Switch>
           <Route exact path="/" component={Home} />
