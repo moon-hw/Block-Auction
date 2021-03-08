@@ -14,12 +14,15 @@ git 이용법
 
 - 로컬 저장소에 원격 저장소 추가
     git remote add block-auction(별명) https://github.com/dojyj/Block-Auction(복사한 주소)
-  
+
 <그 이후 반복 >
 => branch 생성 => add,commit,push => pull request 생성 => merge PR => 동기화 및 branch 삭제 => branch 생성..
 
 - branch 생성
     git checkout -b dy(자기 branch 별명)
+
+- dependency 다운로드
+    npm install
 
 - 수정 작업후 add,commit,push
     git push origin dy(자기 branch 별명)
