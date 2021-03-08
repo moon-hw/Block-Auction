@@ -23,8 +23,17 @@ export const auth = firebase.auth();            // auth 변수
 // export const firestore = firebase.firestore();  // firestore 접근 변수
 
 const provider = new firebase.auth.GoogleAuthProvider();
-provider.setCustomParameters({prompt: 'select_account'});
 
-export const signInWithGoogle = () => auth.signInWithPopup(provider);
+//provider.setCustomParameters({prompt: 'select_account'}); // -> 다른 로그인 구현 가능하도록 할때, 매번 로그인 시 선택 할 수 있게함.
 
+// 구글 로그인 구현
+export const signInWithGoogle = () => {
+    auth.signInWithPopup(provider).then(res => {
+        console.log(res.user)
+    }).catch(error => {
+        console.log(error.message);
+    })
+}
+
+// 혹시 전체 라이브러리가 필요할수도 있기에, firebase 전체 export
 export default firebase;

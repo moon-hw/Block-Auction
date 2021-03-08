@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, Route, Switch, BrowserRouter as Router } from "react-router-dom";
 
 import Home from "./Home";
@@ -9,7 +9,7 @@ import NoticeBoard from "./NoticeBoard";
 import TopAuction from "./TopAuction";
 
 function App() {
-  return (
+  return ( 
     <Router>
       <Header />
       <NoticeBoard />
@@ -17,7 +17,6 @@ function App() {
       <main>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/auction" component={Auction} />
           <Route component={NotFound} />
         </Switch>
       </main>
