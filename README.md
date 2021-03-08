@@ -28,6 +28,8 @@
     git checkout -b dy(자기 branch 별명)
     git fetch upstream(원본 저장소)
     git merge upstream/main(원본 저장소 main 브랜치)
+    // 바뀐 내용이 있다면
+    git push
     
 - dependency 다운로드 (package.json에 새로운 모듈 추가됬을 경우)
   
@@ -35,10 +37,10 @@
 
 - 수정 작업후 add,commit,push
  
-    git push origin dy(자기 branch 별명)
+    git push origin(자기 repo 별명) dy(자기 branch 별명)
     
 
-- pull request 생성. push 완료하고 자기 계정의 github 저장소에 들어가면 Compare & pull request 버튼이 활성화 되어있음. 버튼 누르고 메세지 작성후 PR 생성!!
+- 자기 repo 들어가서 pull request 생성. push 완료하고 자기 계정의 github 저장소에 들어가면 Compare & pull request 버튼이 활성화 되어있음. 버튼 누르고 메세지 작성후 PR 생성!!
   
 - merge PR. 원본 저장소 관리자가 확인하고 merge
   
