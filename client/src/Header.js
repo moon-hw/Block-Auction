@@ -5,15 +5,15 @@ class Header extends React.Component {
     render(){
         return (
             <header>
-            <Link to="/">
-                <button>Home</button>
-            </Link>
-            <Link to="/auction">
-                <button>auction</button>
-            </Link>
-            <Link to="/users">
-                <button>Users</button>
-            </Link>
+                <Link to="/">
+                    <button>Home</button>
+                </Link>
+                <Link to="/auction">
+                    <button>auction</button>
+                </Link>
+                <Link to="/users">
+                    <button>Users</button>
+                </Link>
             </header>   
         );
     }

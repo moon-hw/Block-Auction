@@ -32,7 +32,7 @@ class Home extends React.Component {
       return (
         <div className="App">
           <header className="App-header">
-            <div>current user!</div>
+            {/* <div>current user!</div> */}
             {this.state.users.map(user =>
                 <div key={user.id}>{user.username}</div>
               )}
