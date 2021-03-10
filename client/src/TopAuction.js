@@ -1,4 +1,5 @@
 import React from "react";
+import './TopAuction.css';
 
 class TopAuction extends React.Component {
     render(){

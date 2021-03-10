@@ -5,8 +5,8 @@ const initState = {
         { id : '3', title : 'qcy t5', startPrice : '10000'},],
 };
 
-const auctionReducer = (state = initState, action) => {
+const auction = (state = initState, action) => {
     return state;
 };
 
-export default auctionReducer;
+export default auction;

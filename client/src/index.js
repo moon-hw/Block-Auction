@@ -7,17 +7,22 @@ import App from './App';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from './store/reducers/rootReducers';
-import thunk from 'redux-thunk';
+import thunk from 'redux-thunk'; // 함수 형식을 대처하는 미들웨어
 
-// firebase
+// enhancing store with firebase
 import firebase from 'firebase/app';
 import fbConfig from './firebase.utils';
-import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
-import { createFirestoreInstance } from 'redux-firestore';
+import { reactReduxFirebase, ReactReduxFirebaseProvider } from 'react-redux-firebase';
+//import { createFirestoreInstance } from 'redux-firestore';
 
-const store = createStore(
-    rootReducer,
-    compose(applyMiddleware(thunk))
+const createStoreWithFirebase = compose(reactReduxFirebase(firebase))(
+  createStore
+);
+
+const store = createStoreWithFirebase(
+  rootReducer,
+  {},
+  applyMiddleware(thunk)
 );
 
 // react-redux-firebase 데이터베이스 접근 설정
@@ -25,7 +30,7 @@ const rrfProps = {
   firebase,
   config: fbConfig,
   dispatch: store.dispatch,
-  createFirestoreInstance,
+  //createFirestoreInstance,
 };
 
 ReactDOM.render(
