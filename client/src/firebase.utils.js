@@ -1,5 +1,6 @@
 import dotenv from 'dotenv';
 import firebase from 'firebase/app';
+import 'firebase/firestore';
 import 'firebase/auth';
 
 dotenv.config();
@@ -20,11 +21,11 @@ console.log(firebaseConfig.projectId);
 firebase.initializeApp(firebaseConfig);
 
 export const auth = firebase.auth();            // auth 변수
-// export const firestore = firebase.firestore();  // firestore 접근 변수
+export const firestore = firebase.firestore();  // firestore 접근 변수
 
 const provider = new firebase.auth.GoogleAuthProvider();
 
-//provider.setCustomParameters({prompt: 'select_account'}); // -> 다른 로그인 구현 가능하도록 할때, 매번 로그인 시 선택 할 수 있게함.
+provider.setCustomParameters({prompt: 'select_account'}); // -> 다른 로그인 구현 가능하도록 할때, 매번 로그인 시 선택 할 수 있게함.
 
 // 구글 로그인 구현
 export const signInWithGoogle = () => {
