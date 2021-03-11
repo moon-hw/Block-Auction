@@ -6,7 +6,8 @@ import NotFound from "./NotFound";
 import Header from "./Header";
 import NoticeBoard from "./NoticeBoard";
 import TopAuction from "./TopAuction";
-import Login from "./Login";
+import SignIn from "./SignIn";
+import SignUp from "./SignUp";
 
 function App() {
   return ( 
@@ -17,7 +18,8 @@ function App() {
       <main>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/login" component={Login} />
+          <Route path="/signin" component={SignIn} />
+          <Route path="/signup" component={SignUp} />
           <Route component={NotFound} />
         </Switch>
       </main>

@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import { auth, signInWithGoogle } from './firebase.utils';
 import './App.css';
 
+import SignIn from './SignIn';
+import SignUp from './SignUp';
+
 class Home extends React.Component {
     state = {
       users: [],
@@ -39,6 +42,8 @@ class Home extends React.Component {
             <Link to="/auction">
                 <button className="EnterAuctionBtn">go to auction</button>
             </Link>
+            <SignIn />
+            <SignUp />
             <button onClick={signInWithGoogle}>SIGN IN WITH GOOGLE</button>
           </header>
         </div>
