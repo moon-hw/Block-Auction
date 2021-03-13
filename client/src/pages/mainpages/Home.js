@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { auth, signInWithGoogle } from './firebase.utils';
-import './App.css';
+import { auth, signInWithGoogle } from '../../../src/firebase.utils';
+import '../../App.css';
+import AdSlider from '../../components/AdSlider';
+import Top5 from '../../components/Top5';
 
 class Home extends React.Component {
     state = {
@@ -36,15 +38,17 @@ class Home extends React.Component {
             {this.state.users.map(user =>
                 <div key={user.id}>{user.username}</div>
               )}
-            <Link to="/auction">
-                <button className="EnterAuctionBtn">go to auction</button>
-            </Link>
-            <button onClick={signInWithGoogle}>SIGN IN WITH GOOGLE</button>
           </header>
+          <body>
+          <AdSlider/>
+              <Top5/>
+          </body>
+          
         </div>
       );
     }
   }
+  
   
   export default Home;
   

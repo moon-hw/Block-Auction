@@ -1,17 +1,22 @@
 import React, { useState } from "react";
 import { Link, Route, Switch, BrowserRouter as Router } from "react-router-dom";
-import Home from "./Home";
 import NotFound from "./NotFound";
-import Header from "./Header";
+import Header from "./components/Header";
+import Home from "./pages/mainpages/Home";
+import LoginPage from "./pages/mainpages/LoginPage";
+import LikedPage from "./pages/mainpages/LikedPage";
+import InboxPage from "./pages/mainpages/InboxPage";
 
 function App() {
   return ( 
     <Router>
       <Header/>
-      <hr />
       <main>
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route path="/" component={Home} exact={true}/>
+          <Route path = "/login" component={LoginPage}/>
+          <Route path ="/liked" component={LikedPage}/>
+          <Route path ="/inbox" component={InboxPage}/>
           <Route component={NotFound} />
         </Switch>
       </main>

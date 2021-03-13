@@ -23,3 +23,4 @@ export const create_auction = auction => {
 export const authentication = () => ({
     type: types.AUTHENTICATION
 });
+
