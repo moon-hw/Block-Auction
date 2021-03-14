@@ -1,25 +1,22 @@
 import React, { useState } from "react";
 import { Link, Route, Switch, BrowserRouter as Router } from "react-router-dom";
-
-import Home from "./Home";
 import NotFound from "./NotFound";
-import Header from "./Header";
-import NoticeBoard from "./NoticeBoard";
-import TopAuction from "./TopAuction";
-import SignIn from "./SignIn";
-import SignUp from "./SignUp";
+import Header from "./components/Header";
+import Home from "./pages/mainpages/Home";
+import LoginPage from "./pages/mainpages/LoginPage";
+import LikedPage from "./pages/mainpages/LikedPage";
+import InboxPage from "./pages/mainpages/InboxPage";
 
 function App() {
   return ( 
     <Router>
-      <Header />
-      <NoticeBoard />
-      <TopAuction />
+      <Header/>
       <main>
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/signin" component={SignIn} />
-          <Route path="/signup" component={SignUp} />
+          <Route path="/" component={Home} exact={true}/>
+          <Route path = "/login" component={LoginPage}/>
+          <Route path ="/liked" component={LikedPage}/>
+          <Route path ="/inbox" component={InboxPage}/>
           <Route component={NotFound} />
         </Switch>
       </main>
