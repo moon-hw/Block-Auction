@@ -1,12 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { auth, signInWithGoogle } from '../../../src/firebase.utils';
+// import { Link } from 'react-router-dom';
+import { auth } from '../../../src/firebase.utils';
 import '../../App.css';
 import AdSlider from '../../components/AdSlider';
 import Top5 from '../../components/Top5';
 
-import SignIn from './SignIn';
-import SignUp from './SignUp';
+// import SignIn from './SignIn';
+// import SignUp from './SignUp';
 
 class Home extends React.Component {
     state = {
@@ -25,6 +25,11 @@ class Home extends React.Component {
       // 현재 로그인 상태를 가져옴
       auth.onAuthStateChanged(user => {
         this.setState({ currentUser : user});
+
+        if (this.state.currentUser){
+          console.log(`current user : ${this.state.currentUser.displayName}`);
+          console.log(`email : ${this.state.currentUser.email}`);
+        }
       })
     }
     
