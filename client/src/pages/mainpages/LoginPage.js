@@ -4,11 +4,11 @@ import AuthForm from '../../auth/AuthForm';
 
 const LoginPage = () => {
     return (
-    <div>
+    <>
         <AuthTemplate>
             <AuthForm/>
         </AuthTemplate>
-    </div>
+    </>
     );
 };
 

@@ -1,15 +1,15 @@
-var express = require('express');
-var router = express.Router();
-// 버튼 작업
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.json([{
-    id: 1,
-    username: "20162442"
-  }, {
-    id : 2,
-    username: "kdy"
-  }]);
-});
+const express = require('express');
+const asyncify = require('express-asyncify');
+const asyncRouter = asyncify(express.Router());
 
-module.exports = router;
+asyncRouter.post("/checkgoogleexist", async (req, res, next) => {
+  return res.status(201);
+  
+  const {
+    body: { uid },
+  } = req;
+  if (uid === undefined) return next(`NO UID ERROR`);
+  return res.status(201).send({ result: "success"});
+})
+
+module.exports = asyncRouter;
