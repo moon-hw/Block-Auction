@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import Responsive from './Responsive';
@@ -7,6 +7,7 @@ import SearchBar from './SearchBar';
 import LoginButton from './LoginButton';
 import LikedButton from './LikedButton';
 import InboxButton from './InboxButton';
+import { auth } from '../firebase.utils';
 
 const HeaderBlock = styled.div`
     position: fixed;
@@ -79,6 +80,19 @@ const Spacer = styled.div`
 `;
 
 const Header = () => {
+    const [isLogin, setIsLogin] = useState(null);
+    
+    useEffect(() => {
+        const unsubscribeFromAuth = auth.onAuthStateChanged(user => {
+            if(user)
+                setIsLogin(true);
+            
+            console.log('cur : ' + isLogin);
+        });
+
+        return () => unsubscribeFromAuth();
+      }, []);
+
     return (
         <>
         <HeaderBlock>
@@ -99,32 +113,54 @@ const Header = () => {
                         <SearchBar/>
                     </div>
 
-                
                 <div className='RightSide'>
-                    <Link to ="/liked">    
-                        <div className='liked'>
-                            <LikedButton/>
-                        </div>
-                    </Link>
-                        
-                    <Link to ="/inbox">   
-                        <div className='inbox'>
-                            <InboxButton/>
-                        </div>
-                    </Link>
-                  
-                    <Link to ="/login">     
-                        <div className='login'>
-                            <LoginButton/>
-                        </div>
-                    </Link>
-                    </div>
+                    { isLogin ?
+                    <> 
+                        <Link to ="/liked">    
+                            <div className='liked'>
+                                <LikedButton/>
+                            </div>
+                        </Link>
+
+                        <Link to ="/inbox">   
+                            <div className='inbox'>
+                                <InboxButton/>
+                            </div>
+                        </Link>
+                
+                        <Link to ="/mypage">     
+                            <div className='login'>
+                                <LoginButton/>
+                            </div>
+                        </Link>
+                    </>
+                    :
+                    <>
+                        <Link to ="/login">    
+                            <div className='liked'>
+                                <LikedButton/>
+                            </div>
+                        </Link>
+                            
+                        <Link to ="/login">   
+                            <div className='inbox'>
+                                <InboxButton/>
+                            </div>
+                        </Link>
+                    
+                        <Link to ="/login">     
+                            <div className='login'>
+                                <LoginButton/>
+                            </div>
+                        </Link>
+                    </>
+                    }
+                </div>
             </Wrapper>
         </HeaderBlock>
         <Spacer/>
-        </>
-        
-    );
+        </>  
+    );    
 };
       
 export default Header;
