@@ -16,6 +16,7 @@ const AuthFormBlock = styled.div``;
     const AuthForm = () => {
         const history = useHistory();
         const [loading, setLoading] = useState(false);
+        
         return (
             <AuthFormBlock >
                 <Google>
@@ -25,10 +26,12 @@ const AuthFormBlock = styled.div``;
                             try {
                                 setLoading(true);
                                 let provider = new firebase.auth.GoogleAuthProvider();
-                                await auth.signInWithPopup(provider); 
+                                await auth.signInWithPopup(provider);
                                 let { status } = await userApi.checkGoogleSignUped({
                                     uid: auth.currentUser.uid,
                                 });
+                                console.log(`ddd`);
+                                
                                 console.log(status);
 
                                 if (status === 200) {

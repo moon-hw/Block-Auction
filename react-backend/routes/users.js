@@ -3,7 +3,7 @@ const asyncify = require('express-asyncify');
 const asyncRouter = asyncify(express.Router());
 
 asyncRouter.post("/checkgoogleexist", async (req, res, next) => {
-  return res.status(201);
+  return res.status(201).send({ result : "signedup check success"});
   
   const {
     body: { uid },
