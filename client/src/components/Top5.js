@@ -1,6 +1,6 @@
 import React from 'react';
-import weeker from '../lib/weeker.png';
-import sonjamam from '../lib/sonjamam.png';
+// import weeker from '../lib/weeker.png';
+// import sonjamam from '../lib/sonjamam.png';
 import styled from 'styled-components';
 
 const Top5ListBlock = styled.div`
