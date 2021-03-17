@@ -1,5 +1,6 @@
 import dotenv from 'dotenv';
 import firebase from 'firebase/app';
+import 'firebase/firestore';
 import 'firebase/auth';
 
 dotenv.config();
@@ -20,11 +21,5 @@ console.log(firebaseConfig.projectId);
 firebase.initializeApp(firebaseConfig);
 
 export const auth = firebase.auth();            // auth 변수
-// export const firestore = firebase.firestore();  // firestore 접근 변수
-
-const provider = new firebase.auth.GoogleAuthProvider();
-provider.setCustomParameters({prompt: 'select_account'});
-
-export const signInWithGoogle = () => auth.signInWithPopup(provider);
-
+export const firestore = firebase.firestore();  // firestore 접근 변수
 export default firebase;

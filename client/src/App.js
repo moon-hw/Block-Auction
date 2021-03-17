@@ -1,28 +1,24 @@
 import React from "react";
-import { Link, Route, Switch, BrowserRouter as Router } from "react-router-dom";
-import Home from "./Home";
+import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import NotFound from "./NotFound";
-import Auction from "./Auction";
+import Header from "./components/Header";
+import Home from "./pages/mainpages/Home";
+import LoginPage from "./pages/mainpages/LoginPage";
+import LikedPage from "./pages/mainpages/LikedPage";
+import InboxPage from "./pages/mainpages/InboxPage";
+import MyPage from "./pages/mainpages/MyPage";
 
 function App() {
-  return (
+  return ( 
     <Router>
-      <header>
-        <Link to="/">
-          <button>Home</button>
-        </Link>
-        <Link to="/auction">
-          <button>auction</button>
-        </Link>
-        <Link to="/users">
-          <button>Users</button>
-        </Link>
-      </header>
-      <hr />
+      <Header/>
       <main>
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/auction" component={Auction} />
+          <Route path="/" component={Home} exact={true}/>
+          <Route path ="/login" component={LoginPage}/>
+          <Route path ="/liked" component={LikedPage}/>
+          <Route path ="/inbox" component={InboxPage}/>
+          <Route path ="/mypage" component={MyPage}/>
           <Route component={NotFound} />
         </Switch>
       </main>
