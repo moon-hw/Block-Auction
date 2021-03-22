@@ -1,21 +1,17 @@
 import React from 'react';
-// import weeker from '../lib/weeker.png';
-// import sonjamam from '../lib/sonjamam.png';
 import styled from 'styled-components';
-
+import { Container, Row, Col } from 'reactstrap';
+import weeker from '../lib/weeker.png';
 const Top5ListBlock = styled.div`
         position: relative;
-        width: 100%;
+        justify-content: center;
+        display:inline-block;
 
-.parent{
-    width: 90%;
-    margin: 10px auto;
-    display: flex;
-}
 .first {
     border: 1px solid red;
     flex:1;
-    width:15%;
+    width: 200px;
+    height: 200px;
     float:left;
     box-sizing: border-box;
 }
@@ -23,7 +19,8 @@ const Top5ListBlock = styled.div`
 .second{
     border: 1px solid green;
     flex:1;
-    width:15%;
+    width: 200px;
+    height: 200px;
     float:left;
     box-sizing: border-box;
 }
@@ -31,7 +28,8 @@ const Top5ListBlock = styled.div`
 .third{
     border: 1px solid blue;
     flex:1;
-    width:15%;
+    width: 200px;
+    height: 200px;
     float:left;
     box-sizing: border-box;
 }
@@ -39,7 +37,8 @@ const Top5ListBlock = styled.div`
 .fourth{
     border: 1px solid blue;
     flex:1;
-    width:15%;
+    width: 200px;
+    height: 200px;
     float:left;
     box-sizing: border-box;
 }
@@ -47,7 +46,8 @@ const Top5ListBlock = styled.div`
 .fifth{
     border: 1px solid blue;
     flex:1;
-    width:15%;
+    width: 200px;
+    height: 200px;
     float:left;
     box-sizing: border-box;
 }
@@ -56,6 +56,7 @@ const Top5ListBlock = styled.div`
 
 const Spacer = styled.div`
     padding-top: 5rem;
+    justify-content: center;
 `;
 
 const Top5 = () => {
@@ -65,32 +66,51 @@ const Top5 = () => {
         <h1>top 5 List</h1>
         <Top5ListBlock>
         <div className="Top5List">
-        <div className="parents">
-            <div className="first">
-                <img src="weeker" alt=""/>    
-            </div>
+            <Container className="themed-container" fluid={true}>
+                <Row>
+                    <Col xs="6" sm="5">
+                        <div className="first">
+                            <img src={weeker} height="170px" alt=""/>
+                                <div className="content">
+                                    <a className="caption">Thumbnail label</a>
+                                </div>
+                        </div> 
+                        
+                    
 
-            <div className="second">
-                <img src="weeker" alt=""/>    
-            </div>
+                        <div className="second">
+                            <img src={weeker} height="170px" alt=""/>
+                            <div className="content">
+                                    <a className="caption">Thumbnail label</a>
+                                </div>    
+                        </div>
 
-            <div className="third">
-                <img src="weeker" alt=""/>    
-            </div>
+                        <div className="third">
+                            <img src={weeker} height="170px" alt=""/> 
+                            <div className="content">
+                                    <a className="caption">Thumbnail label</a>
+                                </div>   
+                        </div>
 
-            <div className="fourth">
-                <img src="weeker" alt=""/>    
-            </div>
+                        <div className="fourth">
+                            <img src={weeker} height="170px" alt=""/>  
+                            <div className="content">
+                                    <a className="caption">Thumbnail label</a>
+                                </div>  
+                        </div>
 
-            <div className="fifth">
-                <img src="weeker" alt=""/>    
-            </div>
-
-            </div>
+                        <div className="fifth">
+                            <img src={weeker} height="170px" alt=""/> 
+                                <div className="content">
+                                        <a className="caption">Thumbnail label</a>
+                                    </div>   
+                        </div>
+                    </Col>
+                </Row>
+            </Container>
         </div>
         </Top5ListBlock>
         </Spacer>
-
     </>
     );
 };
