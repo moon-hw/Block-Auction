@@ -1,4 +1,4 @@
-export const loginFuctions = {
+export const loginFunctions = {
     onSuccess: (user) => {
         const userInfoStr = JSON.stringify(user);
 

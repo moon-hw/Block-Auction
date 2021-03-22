@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Button from '../components/Button';
 import firebase, { auth } from '../firebase.utils';
 import { useHistory } from "react-router-dom";
-import { loginFuctions } from './AuthWatchers';
+import { loginFunctions } from './AuthWatchers';
 import { userApi } from "../api";
 
 //로그인 폼 보여줌
@@ -36,12 +36,13 @@ const AuthFormBlock = styled.div``;
 
                                 if (status === 200) {
                                     console.log(`회원가입 페이지로 이동`);
+                                    history.push("/signup");
                                 } else if (status === 201) {
                                     const idToken = await auth.currentUser.getIdToken();
                                     localStorage.setItem("idToken", idToken);
                                     console.log(`구글 로그인 성공`);
                                     
-                                    loginFuctions.onSuccess(auth.currentUser);
+                                    loginFunctions.onSuccess(auth.currentUser);
                                     history.push("/");
                                 }
                             } catch (err) {
