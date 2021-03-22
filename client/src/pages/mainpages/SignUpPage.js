@@ -6,18 +6,36 @@ import { auth } from "../../firebase.utils";
 import { loginFunctions } from "../../auth/AuthWatchers";
 
 const AddInformation = () => {
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
   const [loading, setLoading] = useState(false);
   const history = useHistory();
+
+  setEmail(auth.currentUser.email);
+  setName(auth.currentUser.displayName);
+
   return (
       <>
         <p>추가 정보를 입력해주십시오.</p>
         <p>[ 기본 정보 ]</p>
-        <div>{auth.currentUser.email}</div>
-        <div>{auth.currentUser.displayName}</div>
+        <div>{email}</div>
+        <div>{name}</div>
         <div style={{ marginTop: "30px" }}>[ 추가 정보 ]</div>
-        <input id={"nickName"} placeholder="별명" />
-        <input id={"phoneNumber"} placeholder="연락처" />
-        <input id={"accountNumber"} placeholder="비트코인 지갑 주소" />
+        <div>
+          <label htmlFor="nickName">별명</label>
+          <br/>
+          <input id={"nickName"} placeholder="별명" />
+        </div>
+        <div>
+          <label htmlFor="phoneNumber">연락처</label>
+          <br/>
+          <input id={"phoneNumber"} placeholder="연락처" />
+        </div>
+        <div>
+          <label htmlFor="accountNumber">비트코인 지갑 주소</label>
+          <br/>
+          <input id={"accountNumber"} placeholder="비트코인 지갑 주소" />
+        </div>
         <button
           onClick={() => {
             if (loading) return;
