@@ -30,10 +30,6 @@ const AuthFormBlock = styled.div``;
                                 let { status } = await userApi.checkGoogleSignUped({
                                     uid: auth.currentUser.uid,
                                 });
-                                console.log(`ddd`);
-                                
-                                console.log(status);
-
                                 if (status === 200) {
                                     console.log(`회원가입 페이지로 이동`);
                                     history.push("/signup");
@@ -47,8 +43,8 @@ const AuthFormBlock = styled.div``;
                                 }
                             } catch (err) {
                                 console.log(`login error : ${err}`);
+                                setLoading(false);
                             }
-                            setLoading(false);
                         }}>구글 로그인</Button>
                 </Google>
             </AuthFormBlock >
