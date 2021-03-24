@@ -80,14 +80,14 @@ const Spacer = styled.div`
 `;
 
 const Header = () => {
-    const [isLogin, setIsLogin] = useState(true);
+    const [isLogin, setIsLogin] = useState(false);
     
     useEffect(() => {
         const unsubscribeFromAuth = auth.onAuthStateChanged(user => {
-            if (!user)
-                setIsLogin(false)
+            if (user)
+                setIsLogin(true)
             else
-                setIsLogin(true);
+                setIsLogin(false);
 
             return () => unsubscribeFromAuth();
         })
