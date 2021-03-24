@@ -12,7 +12,7 @@ const {
 
 //구글 로그인 정보 DB 확인 메소드
 asyncRouter.post("/checkgoogleexist", async (req, res, next) => {
-  return res.status(201).send({ result : "signedup check success"});
+  return res.status(200).send({ result : "go signup success"});
   
   const {
     body: { uid },

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { loginFuctions } from '../../auth/AuthWatchers';
+import { loginFunctions } from '../../auth/AuthWatchers';
 import { auth } from '../../firebase.utils';
 
 const MyPage = () => {
@@ -13,7 +13,7 @@ const MyPage = () => {
                 auth
                     .signOut()
                     .then(() => {
-                        loginFuctions.onLogout();
+                        loginFunctions.onLogout();
                         console.log(`logout`);
                         history.push("/");
                     })
