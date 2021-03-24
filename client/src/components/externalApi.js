@@ -17,8 +17,8 @@ export const DaumAddressModal = (props) => {
 
     return (
         <>
-            <div  className="zipCode">{zipcode}</div>
-            <button type="button" onClick={() => {setModal(true)}}>
+            <input type="number" className="zipCode" value={zipcode} readOnly/>
+            <button type="button" className="openModalBtn" onClick={() => {setModal(true)}}>
                 <span> 우편번호 찾기 </span>
             </button>
             {
@@ -39,7 +39,6 @@ export const DaumAddressModal = (props) => {
                                 fullAddress += (extraAddress !== '' ? `(${extraAddress})` : '');
                             }
                             
-                            console.log(`입력받은 주소 : ${fullAddress}`);
                             setZipCode(zoneCode);
                             setFullAddress(fullAddress);
                             props.setAddress(fullAddress);
@@ -50,8 +49,9 @@ export const DaumAddressModal = (props) => {
                     />
                 : null
             }
-            <div className="address">{fullAddress}</div>
-            <input type="text" id={"detailedAddress"} placeholder="상세 주소" />
+            <div>
+                <input className="address1" value={fullAddress} readOnly/>
+            </div>
         </>
     )
 }

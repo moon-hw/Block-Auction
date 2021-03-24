@@ -12,16 +12,11 @@ const {
 
 //구글 로그인 정보 DB 확인 메소드
 asyncRouter.post("/checkgoogleexist", async (req, res, next) => {
-  return res.status(200).send({ result : "go signup success"});
-  
   const {
     body: { uid },
   } = req;
   if (uid === undefined) return next(`NO UID ERROR`);
-  return res.status(201).send({ result: "success"});
-});
-
-  /*DB.user
+  DB.user
   .doc(uid)
   .get()
   .then(async (docSnapshot) => {
@@ -33,7 +28,7 @@ asyncRouter.post("/checkgoogleexist", async (req, res, next) => {
     }
   })
   .catch((err) => next(err.message));
-});*/
+});
 
 // 회원가입
 asyncRouter.post("./signup", async(req,res,next)=>{
@@ -74,8 +69,7 @@ if(body.method === "GOOGLE") {
             email : body.email.trim(),
             name : body.name,
             nickName : body.nickName,
-            address1 : body.address1,
-            address2 : body.address2,
+            address : body.address,
             phoneNumber : body.phoneNumber,
             accountNumber : body.accountNumber
           });
