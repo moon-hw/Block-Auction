@@ -7,7 +7,7 @@ import SearchBar from './SearchBar';
 import LoginButton from './LoginButton';
 import LikedButton from './LikedButton';
 import InboxButton from './InboxButton';
-import { auth } from '../firebase.utils';
+import { loginFunctions } from '../auth/AuthWatchers';
 
 const HeaderBlock = styled.div`
     position: fixed;
@@ -83,14 +83,10 @@ const Header = () => {
     const [isLogin, setIsLogin] = useState(false);
     
     useEffect(() => {
-        const unsubscribeFromAuth = auth.onAuthStateChanged(user => {
-            if (user)
-                setIsLogin(true)
-            else
-                setIsLogin(false);
-
-            return () => unsubscribeFromAuth();
-        })
+        const userInfo = loginFunctions.getUserInfo();
+        if (!userInfo) return;
+        
+        setIsLogin(true);
     },[]);
 
     return (
