@@ -17,6 +17,7 @@ import DigitalofList from "./pages/categories/DigitalofList";
 import InteriorofList from "./pages/categories/InteriorofList";
 import SportsofList from "./pages/categories/SportsofList";
 import ThingofList from "./pages/categories/ThingofList";
+import PostPage from "./pages/auction/PostPage";
 
 function App() {
   return ( 
@@ -39,7 +40,7 @@ function App() {
           <Route path="/interior" component={InteriorofList}/>
           <Route path="/sports" component={SportsofList}/>
           <Route path="/thing" component={ThingofList}/>
-
+          <Route path="/postAuction" component={PostPage}/>
           <Route component={NotFound} />
         </Switch>
       </main>

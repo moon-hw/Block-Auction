@@ -1,5 +1,5 @@
 import React from 'react';
-import {withRouter} from 'react-router-dom';
+import {withRouter,Link} from 'react-router-dom';
 import { BsPlusCircleFill} from 'react-icons/bs';
 import styled from 'styled-components';
 
@@ -26,11 +26,13 @@ const PlusButton = ({ to, history, ...rest }) => {
     };
 
     return (
+      <Link to="/postAuction">
         <Spacer>
             <Plus>
                 <BsPlusCircleFill size="50" {...rest} onClick={onClick}/>
             </Plus>
         </Spacer>
+      </Link>
     )
 }
 export default withRouter(PlusButton);
