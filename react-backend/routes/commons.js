@@ -1,5 +1,7 @@
 const firebaseAdmin = require("firebase-admin");
-const crypto = require("crypto");
+const { secrets } = require("../config");
+// const nodemailer = require("nodemailer");
+// const crypto = require("crypto");
 
 const ERRORS = {
   AUTH: {
@@ -16,14 +18,14 @@ const ERRORS = {
 };
 
 firebaseAdmin.initializeApp({
-    credential: firebaseAdmin.credential.applicationDefault()
-  });
+  credential: firebaseAdmin.credential.cert(secrets),
+});
 
 const firestore = firebaseAdmin.firestore;
 
 const DB = {
-  user: firestore().collection("user"),
-};
+  users: firestore().collection("users"),
+}
 
 const tokenExporter = (headers) => {
     if (headers.authorization) {
@@ -40,10 +42,10 @@ const tokenExporter = (headers) => {
     }
   };
 
-  module.exports = {
-    firestore,
-    firebaseAdmin,
-    DB,
-    ERRORS,
-    tokenExporter
-  }; 
+module.exports = {
+  DB,
+  firestore,
+  firebaseAdmin,
+  ERRORS,
+  tokenExporter
+}; 

@@ -9,25 +9,25 @@ const {
   tokenExporter,
 }=require("./commons");
 
-
 //구글 로그인 정보 DB 확인 메소드
 asyncRouter.post("/checkgoogleexist", async (req, res, next) => {
   const {
     body: { uid },
   } = req;
   if (uid === undefined) return next(`NO UID ERROR`);
-  DB.user
-  .doc(uid)
-  .get()
-  .then(async (docSnapshot) => {
-    if(docSnapshot.exists){
-      return res.status(201).send({result:"success"});
-    }
-    else{
-      return res.status(200).send({result:"success"});
-    }
-  })
-  .catch((err) => next(err.message));
+  
+  return DB.users
+    .doc(uid)
+    .get()
+    .then(async (docSnapshot) => {
+      if(docSnapshot.exists){
+        return res.status(201).send({result:"success"});
+      }
+      else{
+        return res.status(200).send({result:"success"});
+      }
+    })
+    .catch((err) => next(err.message));
 });
 
 // 회원가입
@@ -56,7 +56,7 @@ if(body.method === "GOOGLE") {
     return next(ERRORS_AUTH.NO_UID);
   }
 
-  return DB.user
+  return DB.users
   .doc(body.uid)
   .get()
   .then(async (docSnapshot) => {
