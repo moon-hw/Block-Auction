@@ -1,20 +1,35 @@
-var firebase = require("firebase");
+const firebaseAdmin = require("firebase-admin");
+const dotenv = require("dotenv");
+dotenv.config();
 
-
-var config = {
-  apiKey: "AIzaSyBIT8bT9-_K0cMio-psKILS4dir6hJnI0w",
-    authDomain: "blockauction-9e053.firebaseapp.com",
-    projectId: "blockauction-9e053",
-    storageBucket: "blockauction-9e053.appspot.com",
-    messagingSenderId: "703413947930",
-    appId: "1:703413947930:web:a9029ee30b55b7ac9ecba3"
+var adminConfig = {
+    type: process.env.TYPE,
+    project_id: process.env.PROJECT_ID,
+    private_key_id: process.env.PRIVATE_KEY_ID,
+    private_key: process.env.PRIVATE_KEY,
+    client_email: process.env.CLIENT_EMAIL,
+    client_id: process.env.CLIENT_ID,
+    auth_uri: process.env.AUTH_URI,
+    token_uri: process.env.TOKEN_URI,
+    auth_provider_x509_cert_url: process.env.AUTH_PROVIDER_X509_CERT_URL,
+    client_x509_cert_url: process.env.CLIENT_X509_CERT_URL,
 };
 
-firebase.initializeApp(config);
+firebaseAdmin.initializeApp({
+    credential: firebaseAdmin.credential.cert(adminConfig),
+});
 
-const db=firebase.firestore();
+const firestore = firebaseAdmin.firestore;
 
-module.exports={db};
+const DB = {
+    users: firestore().collection("users"),
+};
+
+module.exports={ 
+    firestore,
+    firebaseAdmin,
+    DB
+ };
 
 /*
 예시
