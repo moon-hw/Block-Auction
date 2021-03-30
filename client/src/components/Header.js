@@ -6,7 +6,7 @@ import art from '../lib/art.png';
 import SearchBar from './SearchBar';
 import LoginButton from './LoginButton';
 import LikedButton from './LikedButton';
-import InboxButton from './InboxButton';
+import InboxButton from './inbox/InboxButton';
 import { auth } from '../firebase.utils';
 
 const HeaderBlock = styled.div`
