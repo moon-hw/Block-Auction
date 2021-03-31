@@ -1,0 +1,36 @@
+.mypageMenu {
+  height: 100%;
+  width: 10%;
+  padding: 5px;
+  background-color: #e3e1e3;
+}
+
+.mypage:hover {
+  background-color: #f0f2f3;
+  cursor: pointer;
+}
+
+.memberInfo:hover {
+  background-color: #f0f2f3;
+  cursor: pointer;
+}
+
+.inbox:hover {
+  background-color: #f0f2f3;
+  cursor: pointer;
+}
+
+.myAuctionList:hover {
+  background-color: #f0f2f3;
+  cursor: pointer;
+}
+
+.joinedList:hover {
+  background-color: #f0f2f3;
+  cursor: pointer;
+}
+
+.likedList:hover {
+  background-color: #f0f2f3;
+  cursor: pointer;
+}

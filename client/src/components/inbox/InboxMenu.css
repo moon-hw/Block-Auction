@@ -1,0 +1,31 @@
+.inboxMenu {
+  width: 100%;
+  margin: 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 200px;
+}
+
+.receiverInbox {
+  padding: 7px;
+  background-color: #eceaea;
+  margin-right: 5px;
+  border: 0;
+}
+
+.receiverInbox:hover {
+  background-color: #bdbdc7;
+  cursor: pointer;
+}
+
+.senderInbox {
+  padding: 7px;
+  background-color: #eceaea;
+  border: 0;
+}
+
+.senderInbox:hover {
+  background-color: #8e8ebf;
+  cursor: pointer;
+}
