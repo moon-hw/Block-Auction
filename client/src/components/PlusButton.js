@@ -29,9 +29,7 @@ const PlusButton = ({ to, history, ...rest }) => {
       <Link to="/postAuction">
         <Spacer>
             <Plus>
-                <Link to ="/additem">  
                     <BsPlusCircleFill size="50" {...rest} onClick={onClick}/>
-                </Link>
             </Plus>
         </Spacer>
       </Link>
