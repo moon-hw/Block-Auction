@@ -72,37 +72,36 @@ const Top5 = () => {
                         <div className="first">
                             <img src={weeker} height="170px" alt=""/>
                                 <div className="content">
-                                    <a className="caption">Thumbnail label</a>
+                                    <p className="caption">Thumbnail label</p>
                                 </div>
                         </div> 
-                        
                     
 
                         <div className="second">
                             <img src={weeker} height="170px" alt=""/>
                             <div className="content">
-                                    <a className="caption">Thumbnail label</a>
+                                    <p className="caption">Thumbnail label</p>
                                 </div>    
                         </div>
 
                         <div className="third">
                             <img src={weeker} height="170px" alt=""/> 
                             <div className="content">
-                                    <a className="caption">Thumbnail label</a>
+                                    <p className="caption">Thumbnail label</p>
                                 </div>   
                         </div>
 
                         <div className="fourth">
                             <img src={weeker} height="170px" alt=""/>  
                             <div className="content">
-                                    <a className="caption">Thumbnail label</a>
+                                    <p className="caption">Thumbnail label</p>
                                 </div>  
                         </div>
 
                         <div className="fifth">
                             <img src={weeker} height="170px" alt=""/> 
                                 <div className="content">
-                                        <a className="caption">Thumbnail label</a>
+                                        <p className="caption">Thumbnail label</p>
                                     </div>   
                         </div>
                     </Col>

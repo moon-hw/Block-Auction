@@ -1,0 +1,31 @@
+.InboxViewBlock {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.backToinbox {
+  border: 0;
+  padding: 10px;
+  background-color: #eceaea;
+}
+
+.backToinbox:hover {
+  background-color: #8e8ebf;
+  cursor: pointer;
+}
+
+.InboxViewRow {
+  margin: 10px 0;
+  display: flex;
+}
+
+.InboxViewRow > label:first-child {
+  margin: 10px 0;
+  width: 30%;
+  font-weight: bold;
+}
+
+.InboxViewRow > *:nth-child(2) {
+  margin: 10px 0;
+  width: 70%;
+}
