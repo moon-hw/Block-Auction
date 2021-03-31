@@ -16,7 +16,6 @@ class Home extends React.Component {
             <Category/>
             <PlusButton/>
           </body>
-          
         </div>
       );
     }

@@ -80,18 +80,18 @@ const Spacer = styled.div`
 `;
 
 const Header = () => {
-    const [isLogin, setIsLogin] = useState(null);
+    const [isLogin, setIsLogin] = useState(true);
     
     useEffect(() => {
         const unsubscribeFromAuth = auth.onAuthStateChanged(user => {
-            if(user)
+            if (!user)
+                setIsLogin(false)
+            else
                 setIsLogin(true);
-            
-            console.log('cur : ' + isLogin);
-        });
 
-        return () => unsubscribeFromAuth();
-      }, []);
+            return () => unsubscribeFromAuth();
+        })
+    },[]);
 
     return (
         <>
@@ -108,11 +108,9 @@ const Header = () => {
                     
                     </div>
                 </Link>
-
-                    <div className='SearchBar'>
-                        <SearchBar/>
-                    </div>
-
+                <div className='SearchBar'>
+                    <SearchBar/>
+                </div>
                 <div className='RightSide'>
                     { isLogin ?
                     <> 
