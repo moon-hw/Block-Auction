@@ -31,18 +31,17 @@ asyncRouter.post("/checkgoogleexist", async (req, res, next) => {
 });
 
 // 회원가입
-asyncRouter.post("./signup", async(req,res,next)=>{
+asyncRouter.post("/signup", async(req,res,next)=>{
   const {body} =req;
 
   if(
-    body.method == undefined ||
-    body.name == undefined ||
-    body.email == undefined ||
-    body.nickName == undefined ||
-    body.address1 == undefined ||
-    body.address2 == undefined ||
-    body.phoneNumber == undefined ||
-    body.accountNumber == undefined
+    body.method === undefined ||
+    body.name === undefined ||
+    body.email === undefined ||
+    body.phoneNumber === undefined ||
+    body.nickName === undefined ||
+    body.address === undefined ||
+    body.accountNumber === undefined
   ){
     return next(ERRORS.DATA.INVALID_DATA);
   }
@@ -65,7 +64,7 @@ if(body.method === "GOOGLE") {
     }
     else {
         try {
-          await DB.user.doc(body.uid).set({
+          await DB.users.doc(body.uid).set({
             email : body.email.trim(),
             name : body.name,
             nickName : body.nickName,
