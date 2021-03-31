@@ -4,6 +4,7 @@ import NotFound from "./NotFound";
 import Header from "./components/Header";
 import Home from "./pages/mainpages/Home";
 import LoginPage from "./pages/mainpages/LoginPage";
+import SignUpPage from "./pages/mainpages/SignUpPage";
 import LikedPage from "./pages/mypages/LikedPage";
 import InboxPage from "./pages/mypages/InboxPage";
 import MyPage from "./pages/mypages/MyPage";
@@ -16,6 +17,7 @@ import DigitalofList from "./pages/categories/DigitalofList";
 import InteriorofList from "./pages/categories/InteriorofList";
 import SportsofList from "./pages/categories/SportsofList";
 import ThingofList from "./pages/categories/ThingofList";
+import PostPage from "./pages/auction/PostPage";
 import Additem from "./pages/mainpages/AddItem";
 import InboxView from "./components/inbox/InboxView";
 import SenderInboxList from "./components/inbox/SenderInboxList";
@@ -39,6 +41,7 @@ function App() {
           <Route exact path="/senderInbox" component={SenderInboxList}/>
           <Route exact path ="/inbox" component={InboxPage}/>
           <Route path ="/mypage" component={MyPage}/>
+          <Route path ="/signup" component={SignUpPage}/>
           <Route path="/all" component={AllofList}/>
           <Route path="/accessory" component={AccessoryofList}/>
           <Route path="/art" component={ArtofList}/>
@@ -49,7 +52,7 @@ function App() {
           <Route path="/sports" component={SportsofList}/>
           <Route path="/thing" component={ThingofList}/>
           <Route path="/additem" component={Additem}/>
-
+          <Route path="/postAuction" component={PostPage}/>
           <Route component={NotFound} />
         </Switch>
       </main>

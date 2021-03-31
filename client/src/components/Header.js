@@ -6,8 +6,8 @@ import art from '../lib/art.png';
 import SearchBar from './SearchBar';
 import LoginButton from './LoginButton';
 import LikedButton from './LikedButton';
+import { loginFunctions } from '../auth/AuthWatchers';
 import InboxButton from './inbox/InboxButton';
-import { auth } from '../firebase.utils';
 
 const HeaderBlock = styled.div`
     position: fixed;
@@ -80,17 +80,13 @@ const Spacer = styled.div`
 `;
 
 const Header = () => {
-    const [isLogin, setIsLogin] = useState(true);
+    const [isLogin, setIsLogin] = useState(false);
     
     useEffect(() => {
-        const unsubscribeFromAuth = auth.onAuthStateChanged(user => {
-            if (!user)
-                setIsLogin(false)
-            else
-                setIsLogin(true);
-
-            return () => unsubscribeFromAuth();
-        })
+        const userInfo = loginFunctions.getUserInfo();
+        if (!userInfo) return;
+        
+        setIsLogin(true);
     },[]);
 
     return (

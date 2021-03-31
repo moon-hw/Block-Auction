@@ -15,9 +15,6 @@ const firebaseConfig = {
     measurementId: process.env.REACT_APP_MEASUREMENT_ID
 };
 
-console.log(firebaseConfig.apiKey);
-console.log(firebaseConfig.projectId);
-
 firebase.initializeApp(firebaseConfig);
 
 export const auth = firebase.auth();            // auth 변수
