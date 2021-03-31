@@ -33,6 +33,7 @@ const PlusButton = ({ to, history, ...rest }) => {
                 </Link>
             </Plus>
         </Spacer>
+      
     )
 }
 export default withRouter(PlusButton);
