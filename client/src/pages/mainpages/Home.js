@@ -10,12 +10,12 @@ class Home extends React.Component {
       return (
         <div className="App">
           <header className="App-header" />
-          <body>
+          <div>
             <AdSlider/>
             <Top5/>
             <Category/>
             <PlusButton/>
-          </body>
+          </div>
         </div>
       );
     }
