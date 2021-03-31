@@ -2,9 +2,7 @@ import React,{useState} from 'react';
 import { userApi } from "../../api";
 import Content from '../../auction/content'
 import Dateform from '../../auction/dateform';
-
-
-
+import postAuction from '../../auction/postAuction.css';
 function PostPage ({history}){
 
   const [Name,setName]=useState('');
@@ -72,9 +70,12 @@ const {enddate,endhour}=EndDate;
   };
   
   return (
-    <div>
-      <div id="register">
-        <div className="empty" style={{height:`200px`}}/>
+      <div className="postAuctionBlock">
+        <div className="postAuctionHeader">
+          <h2>경매 등록</h2>
+          <p>*필수 입력 항목</p>
+        </div>
+
         <hr/>
         <Content value={Name} title="상품이름" onChange={namechangeHandler}/>
         <Content value={Explain} title="상세설명" onChange={explainchangeHandler}/>
@@ -83,13 +84,12 @@ const {enddate,endhour}=EndDate;
         {/*Dateform 수정 필요*/}
         <Dateform value={StartDate} title="경매 시작 일시" onChange={startdatechangeHandler} />
         <Dateform value={EndDate} title="경매 종료 일시" onChange={enddatechangeHandler}/>
-        <div className="empty" style={{height:`200px`}}/>
         <hr/>
         
+      
+        <button className="postButton" onClick={goBack}>취소</button>
+        <button className="postButton" onClick={submitHandler}>경매등록</button>
       </div>
-      <button onClick={goBack}>취소</button>
-      <button onClick={submitHandler}>경매등록</button>
-    </div>
   ); 
 };
 

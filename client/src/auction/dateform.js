@@ -23,18 +23,19 @@ export default function ReactDatepicker(props) {
   console.log(hour);
   return (
     <div>
-      
-      {props.title}
-      <DatePicker
-        selected={basicDate}
-        onChange={(date) => setBasicDate(date)}
-      />
+        {props.title}
+
+
+        <DatePicker
+          selected={basicDate}
+          onChange={(date) => setBasicDate(date)}
+        />
       <br/>
-      <select onchange={hourchangeHandler}>
-        {hours.map(item =>(
-        <option  placeholder="시간" key={item.key}>{item.value}</option>
-        ))}
-        </select>시
+        <select onchange={hourchangeHandler}>
+          {hours.map(item =>(
+          <option  placeholder="시간" key={item.key}>{item.value}</option>
+          ))}
+          </select>
     </div>
   );
 }
