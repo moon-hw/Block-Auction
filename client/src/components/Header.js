@@ -6,8 +6,8 @@ import art from '../lib/art.png';
 import SearchBar from './SearchBar';
 import LoginButton from './LoginButton';
 import LikedButton from './LikedButton';
-import InboxButton from './InboxButton';
 import { loginFunctions } from '../auth/AuthWatchers';
+import InboxButton from './inbox/InboxButton';
 
 const HeaderBlock = styled.div`
     position: fixed;
