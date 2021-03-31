@@ -26,13 +26,11 @@ const PlusButton = ({ to, history, ...rest }) => {
     };
 
     return (
-      <Link to="/postAuction">
         <Spacer>
             <Plus>
                     <BsPlusCircleFill size="50" {...rest} onClick={onClick}/>
             </Plus>
         </Spacer>
-      </Link>
     )
 }
 export default withRouter(PlusButton);
