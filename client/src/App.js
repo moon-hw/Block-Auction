@@ -51,8 +51,8 @@ function App() {
           <Route path="/interior" component={InteriorofList}/>
           <Route path="/sports" component={SportsofList}/>
           <Route path="/thing" component={ThingofList}/>
-          <Route path="/postAuction" component={PostPage}/>
           <Route path="/additem" component={Additem}/>
+          <Route path="/postAuction" component={PostPage}/>
           <Route component={NotFound} />
         </Switch>
       </main>
