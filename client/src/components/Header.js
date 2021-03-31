@@ -84,6 +84,7 @@ const Header = () => {
     
     useEffect(() => {
         const userInfo = loginFunctions.getUserInfo();
+        console.log(userInfo);
         if (!userInfo) return;
         
         setIsLogin(true);
