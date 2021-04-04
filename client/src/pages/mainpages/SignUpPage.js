@@ -46,6 +46,8 @@ const AddInformationForm = () => {
         phoneNumber: data.phoneNumber,
         address: address + data.detailedAddress,
         accountNumber: data.account,
+        selfIntorduction: "",
+        buyingFailure: 0,
       })
       .then(async () => {
         const idToken = await auth.currentUser.getIdToken();

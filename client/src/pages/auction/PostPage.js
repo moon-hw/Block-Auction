@@ -20,8 +20,8 @@ function PostPage ({history}){
     endhour:''
 });
 
-const {startdate,starthour}=StartDate;
-const {enddate,endhour}=EndDate;
+// const {startdate,starthour}=StartDate;
+// const {enddate,endhour}=EndDate;
 
   const namechangeHandler = (event) =>{
     setName(event.target.value);
