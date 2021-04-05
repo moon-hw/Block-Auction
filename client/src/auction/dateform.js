@@ -31,11 +31,11 @@ export default function ReactDatepicker(props) {
           onChange={(date) => setBasicDate(date)}
         />
       <br/>
-        <select onchange={hourchangeHandler}>
-          {hours.map(item =>(
-          <option  placeholder="시간" key={item.key}>{item.value}</option>
-          ))}
-          </select>
+      <select onChange={hourchangeHandler}>
+        {hours.map(item =>(
+        <option  placeholder="시간" key={item.key}>{item.value}</option>
+        ))}
+        </select>시
     </div>
   );
 }

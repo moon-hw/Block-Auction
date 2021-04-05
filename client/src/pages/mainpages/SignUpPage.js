@@ -6,15 +6,18 @@ import { auth } from "../../firebase.utils";
 import { loginFunctions } from "../../auth/AuthWatchers";
 import { DaumAddressModal } from "../../components/externalApi";
 import { useForm } from "react-hook-form";
+import { loadWeb3 } from "../../auction/useWeb3";
 
-const AddInformationForm = () => {
+const AddInformationForm = ()=> {
   const { register, errors, handleSubmit } = useForm({ mode: "onBlur"});
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [address, setAddress] = useState('');
   
+  const [account, setAccount] = useState('');
   const [loading, setLoading] = useState(false);
   const history = useHistory();
+  const ethereum = loadWeb3();
 
   useEffect(() => {
     const unsubscribeFromAuth = auth.onAuthStateChanged(user => {
@@ -30,10 +33,15 @@ const AddInformationForm = () => {
     })
   }, []);
 
-  const onFormSubmit = (data) => {
-    console.log("data", data);
-    console.log(address, data.detailedAddress);
+  useEffect(() => {
+    if (ethereum){
+      setAccount(window.ethereum.selectedAddress);
+    } else {
+      setAccount(`meta mask 연동이 필요합니다!`);
+    }
+  },[ethereum]);
 
+  const onFormSubmit = (data) => {
     if (loading) return;
     setLoading(true);
     userApi
@@ -45,7 +53,9 @@ const AddInformationForm = () => {
         nickName: data.nickName,
         phoneNumber: data.phoneNumber,
         address: address + data.detailedAddress,
-        accountNumber: data.account,
+        accountNumber: account,
+        selfIntorduction: "",
+        buyingFailure: 0,
       })
       .then(async () => {
         const idToken = await auth.currentUser.getIdToken();
@@ -69,6 +79,7 @@ const AddInformationForm = () => {
         <p>[ 기본정보 ]</p>
         <p>이름 : {name}</p>
         <p>이메일 : {email}</p>
+        <p>가상계좌주소 : {account}</p> 
         <p>[ 추가정보 ]</p>
         <div>
           별명 : <input type="text" ref={register({ required:true, maxLength:6})} name="nickName" />
@@ -83,10 +94,6 @@ const AddInformationForm = () => {
           {address !== '' ? 
             <input type="text" ref={register} name="detailedAddress" />
           : null} 
-        </div>
-        <div>
-          가상계좌주소 : <input type="text" ref={register({ required:true})} name="account" />
-          {errors.account && '가상계좌주소를 기재해주세요'}
         </div>
         <button type="submit">가입완료</button>
       </form>
