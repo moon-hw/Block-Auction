@@ -86,6 +86,21 @@ else{
 }
 });
 
+// 회원정보 수정
+asyncRouter.post("/myInfo", async (req, res, _next) => {
+  const {
+    body: { uid },
+  } = req;
+
+  return DB.users
+  .doc(uid)
+  .get()
+  .then(async (docSnapshot) => {
+    if()
+
+  })
+
+  
 
 asyncRouter.use((err, _req, res, _next) => {
   switch (err) {
