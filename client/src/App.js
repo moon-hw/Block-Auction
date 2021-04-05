@@ -18,7 +18,6 @@ import InteriorofList from "./pages/categories/InteriorofList";
 import SportsofList from "./pages/categories/SportsofList";
 import ThingofList from "./pages/categories/ThingofList";
 import PostPage from "./pages/auction/PostPage";
-import Additem from "./pages/mainpages/AddItem";
 import InboxView from "./components/inbox/InboxView";
 import SenderInboxList from "./components/inbox/SenderInboxList";
 import SenderInboxView from "./components/inbox/SenderInboxView";
@@ -51,7 +50,6 @@ function App() {
           <Route path="/interior" component={InteriorofList}/>
           <Route path="/sports" component={SportsofList}/>
           <Route path="/thing" component={ThingofList}/>
-          <Route path="/additem" component={Additem}/>
           <Route path="/postAuction" component={PostPage}/>
           <Route component={NotFound} />
         </Switch>
