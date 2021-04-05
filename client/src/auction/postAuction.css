@@ -1,0 +1,26 @@
+.postAuctionBlock {
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.postAuctionHeader {
+  display: inline-block;
+}
+
+.postButton {
+  align-items: center;
+  justify-content: center;
+  padding: 7px;
+  height: 30px;
+  width: 100px;
+  background-color: #eceaea;
+  margin-right: 5px;
+  border: 0;
+}
+
+.postButton:hover {
+  background-color: #bdbdc7;
+  cursor: pointer;
+}
