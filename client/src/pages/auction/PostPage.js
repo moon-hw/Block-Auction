@@ -1,25 +1,61 @@
 import React,{useState} from 'react';
-import { userApi } from "../../api";
+import { auctionApi } from "../../api";
 import Content from '../../auction/content'
+import Fileupload from '../../auction/Fileupload'
 import Dateform from '../../auction/dateform';
-import postAuction from '../../auction/postAuction.css';
-function PostPage ({history}){
+//import postAuction from '../../auction/postAuction.css';
 
+
+
+function PostPage ({history}){
+  //상품이미지, 증명서 - 이미지 저장 
+  const [Image,setImage]=useState()
+  
+
+  //상품이름, 상세 설명,시작가, 종료가, 판매자 정보 -text 저장
   const [Name,setName]=useState('');
   const [Explain,setExplain]=useState('');
   const [StartPrice,setStartPrice]=useState(0);
   const [EndPrice,setEndPrice]=useState(0);
-  const [StartDate,setStartDate]=useState({
-      startdate:'',
-      starthour:''
-  });
-  const [EndDate,setEndDate]=useState({
-    enddate:'',
-    endhour:''
-});
+  const [info,setinfo]=useState('');
 
-// const {startdate,starthour}=StartDate;
-// const {enddate,endhour}=EndDate;
+  
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
+  
+  
+
+  //state 관리
+  const imagechangeHandler = (files) =>{
+    setImage(files);
+    const formData = new FormData();
+    
+    const config={
+      header:{'content-type':'multipart/form-data'}
+    }
+    formData.append("file",files)
+     
+    console.log(files);
+    for (let key of formData.keys()) {
+      console.log(key);
+    }
+    for (let value of formData.values()) {
+      console.log(value);
+    }
+    
+    auctionApi 
+    .postImage({
+      formData,config})
+    .then(async () => {
+      
+      //history.push("/");
+    })
+    .catch((err) => {
+      console.log(err);
+      alert("파일 저장 실패");
+    });
+  };
+
 
   const namechangeHandler = (event) =>{
     setName(event.target.value);
@@ -33,29 +69,35 @@ function PostPage ({history}){
   const endpricechangeHandler = (event) =>{
     setEndPrice(event.currentTarget.value);
   };
-  const startdatechangeHandler = (event) =>{
-    const {value,name}=event.target;
 
-    setStartDate({
-      ...StartDate,
-      [name]:value
-    });
-  };
-  const enddatechangeHandler = (event) =>{
-    const {value,name}=event.target;
-
-    setEndDate({
-      ...EndDate,
-      [name]:value
-    });
-  };
+  const infoHandler=(event) =>{
+    setinfo(event.currentTarget.value);
+    console.log(info);
+  }
 
 
+  
+  const startdatehandleChange = (date) =>{
+    setStartDate(date);
+    console.log(startDate);
+  }
+  const enddatehandleChange = (date) =>{
+    setEndDate(date);
+    console.log(endDate);
+  }
+  
+  //경매등록-입력 데이터 백으로 보내기 
   function submitHandler(){
-    userApi
-      .signUp({
-        method: "Post",
-        uid: "name"
+    
+    auctionApi 
+      .postAuction({
+        title: Name,
+        content: Explain,
+        startprice:StartPrice,
+        reservedprice:EndPrice,
+        startDate:startDate,
+        endDate:endDate,
+        
       })
       .then(async () => {
 
@@ -64,7 +106,11 @@ function PostPage ({history}){
       .catch((err) => {
         console.log(err);
       });
+    
   };
+
+
+  //취소-뒤로가기
   const goBack = () => {
     history.goBack();
   };
@@ -93,25 +139,26 @@ function PostPage ({history}){
           <Content value={EndPrice} title="종료가" onChange={endpricechangeHandler}/>
           </div>
 
-          {/*Dateform 수정 필요*/}
+          
 
-          <div className="box">
-          <Dateform value={StartDate} title="경매 시작 일시" onChange={startdatechangeHandler} />
-          </div>
-
-          <div className="box">
-          <Dateform value={EndDate} title="경매 종료 일시" onChange={enddatechangeHandler}/>
-          </div>
-
+        <hr/>
+        <Fileupload title="상품 이미지" value={Image} onChange={imagechangeHandler}/>
+        <Content value={Name} title="상품이름" onChange={namechangeHandler}/>
+        <Content value={Explain} title="상세설명" onChange={explainchangeHandler}/>
+        <Content type="number" value={StartPrice} title="시작가" onChange={startpricechangeHandler}/>
+        <Content type="number" value={EndPrice} title="종료가" onChange={endpricechangeHandler}/>
+        
+    
+        <Dateform value={startDate} title="경매 시작 일시" onChange={startdatehandleChange} />
+        <Dateform value={endDate} title="경매 종료 일시" onChange={enddatehandleChange}/>
+        <hr/>
+        <Content value={info} title="판매자 정보" onChange={infoHandler}/>
+        
         </div>
-        
-          <div className="btnBlock">
-            <button className="postButton" onClick={goBack}>취소</button>
-            <button className="postButton" onClick={submitHandler}>경매등록</button>
-          </div>
-        
+        <button onChange={goBack}>취소</button>
+        <button onChange={submitHandler}>등록하기</button>
       </div>
   ); 
-};
+}
 
 export default PostPage;
