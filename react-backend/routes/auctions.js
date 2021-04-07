@@ -12,7 +12,7 @@ const {
 
 
 
-asyncRouter.post("/auctionpost", async(req,res,next)=>{
+asyncRouter.post("/postauction", async(req,res,next)=>{
   const { body } = req;
   console.log({body});
   DB.auctionInfo.add({ body } );
