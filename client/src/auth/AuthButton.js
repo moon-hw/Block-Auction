@@ -28,7 +28,8 @@ const Wrapper = styled.div`
 
 `;
 
-const AuthButton = ({children, onClick}) => (
+const AuthButton = ({ children, onClick }) => (
+
     <Wrapper onClick={onClick}>
         {children}
     </Wrapper>

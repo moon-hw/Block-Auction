@@ -8,7 +8,7 @@ import { DaumAddressModal } from "../../components/externalApi";
 import { useForm } from "react-hook-form";
 import { loadWeb3 } from "../../auction/useWeb3";
 import { MyPageWrapper, InputWithLabel, AuthContent, AuthButton} from '../../auth';
-import Button from '../../components/Button';
+
 const MyPage = () => {
     const { register, errors, handleSubmit } = useForm({ mode: "onBlur"});
     const [email, setEmail] = useState('');

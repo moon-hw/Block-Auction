@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory} from "react-router-dom";
 import { userApi } from "../../api";
 import { auth } from "../../firebase.utils";
 import { loginFunctions } from "../../auth/AuthWatchers";
@@ -80,7 +80,6 @@ const AddInformationForm = ()=> {
           <InputWithLabel label="이름" name="name">{name}</InputWithLabel>
           <InputWithLabel label="이메일" name="email">{email}</InputWithLabel>
           <InputWithLabel label="가상계좌주소" name="account">{account}</InputWithLabel>
-
           <InputWithLabel label="별명" name="nickName" >
             <input type="text" ref={register({ required:true, maxLength:6})} name="nickName"/>
           </InputWithLabel>
@@ -102,11 +101,9 @@ const AddInformationForm = ()=> {
             : null} 
           </InputWithLabel>
 
-          <Link to="/">
-          <AuthButton>
-          <button type="submit">가입완료</button>
+          <AuthButton onClick={handleSubmit}>
+<button>가입완료</button>
           </AuthButton>
-          </Link>
         </form>
       </AuthContent>
      </AuthWrapper>
