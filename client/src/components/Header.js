@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {Link} from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import Responsive from './Responsive';
 import art from '../lib/art.png';
@@ -79,16 +79,18 @@ const Spacer = styled.div`
     height: 6rem;
 `;
 
-const Header = () => {
+const Header = ({location}) => {
     const [isLogin, setIsLogin] = useState(false);
-    
     useEffect(() => {
-        const userInfo = loginFunctions.getUserInfo();
-        console.log(userInfo);
-        if (!userInfo) return;
-        
-        setIsLogin(true);
-    },[]);
+        if (location.pathname === '/'){
+            const userInfo = loginFunctions.getUserInfo();
+            if (!userInfo){
+                setIsLogin(false); 
+                return;
+            }
+            setIsLogin(true);
+        }
+    }, [location.pathname]);
 
     return (
         <>
@@ -158,4 +160,4 @@ const Header = () => {
     );    
 };
       
-export default Header;
+export default withRouter(Header);
