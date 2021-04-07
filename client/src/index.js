@@ -14,6 +14,7 @@ import firebase from 'firebase/app';
 import fbConfig from './firebase.utils';
 import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
 import { createFirestoreInstance } from 'redux-firestore';
+import { BrowserRouter as Router} from 'react-router-dom';
 
 const store = createStore(rootReducer, compose(applyMiddleware(thunk)));
 
@@ -29,7 +30,9 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <ReactReduxFirebaseProvider {...rrfProps}>
-        <App />
+        <Router>
+          <App />
+        </Router>
       </ReactReduxFirebaseProvider>
     </Provider>
   </React.StrictMode>,

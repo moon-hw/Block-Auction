@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
+import { Route, Switch, BrowserRouter as Router, withRouter } from "react-router-dom";
 import NotFound from "./NotFound";
 import Header from "./components/Header";
 import Home from "./pages/mainpages/Home";
@@ -24,10 +24,14 @@ import SenderInboxView from "./components/inbox/SenderInboxView";
 import JoinedList from "./pages/mypages/JoinedList";
 import MyAuctionList from "./pages/mypages/MyAuctionList";
 
-function App() {
+const App = ({location}) => {
+  const exclusionArray = [
+    '/signup',
+  ]
+
   return ( 
-    <Router>
-      <Header/>
+    <>
+      {exclusionArray.indexOf(location.pathname) < 0 && <Header/>}
       <main>
         <Switch>
           <Route path="/" component={Home} exact={true}/>
@@ -54,8 +58,9 @@ function App() {
           <Route component={NotFound} />
         </Switch>
       </main>
-    </Router>
+    </>
   );
 }
 
-export default App;
+
+export default withRouter(App);
