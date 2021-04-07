@@ -56,6 +56,6 @@ export const userApi = {
 */
 export const auctionApi = {
     getAuctionList: (body) => api.post("/auctions/getauctionlist"),
-    postAuction: (body) => api.post("/users/postauction", body),
-    postImage:(body) => api.post("/auction/postimage", body),
+    postAuction: (body) => api.post("/auctions/auctionpost", body),
+    postImage:(body) => api.post("/auctions/postimage", body),
 }
