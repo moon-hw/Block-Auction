@@ -44,25 +44,26 @@ const AddInformationForm = ()=> {
   const onFormSubmit = (data) => {
     if (loading) return;
     setLoading(true);
+    const userData = {
+      method: "GOOGLE",
+      uid: auth.currentUser.uid,
+      email: auth.currentUser.email,
+      name: auth.currentUser.displayName,
+      nickName: data.nickName,
+      phoneNumber: data.phoneNumber,
+      address: address + data.detailedAddress,
+      accountNumber: account,
+      selfIntorduction: "",
+      buyingFailure: 0,
+    };
     userApi
-      .signUp({
-        method: "GOOGLE",
-        uid: auth.currentUser.uid,
-        email: auth.currentUser.email,
-        name: auth.currentUser.displayName,
-        nickName: data.nickName,
-        phoneNumber: data.phoneNumber,
-        address: address + data.detailedAddress,
-        accountNumber: account,
-        selfIntorduction: "",
-        buyingFailure: 0,
-      })
+      .signUp(userData)
       .then(async () => {
         const idToken = await auth.currentUser.getIdToken();
         localStorage.setItem("idToken", idToken);
         // localstorage 이용 상태 저장.
+        auth.currentUser.nickName = data.nickName;
         loginFunctions.onSuccess(auth.currentUser, true);
-
         history.push("/");
       })
       .catch((err) => {
