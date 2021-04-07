@@ -22,6 +22,14 @@ const Palette = {
       '#1098ad',
       '#0c8599',
       '#0b7285'
+    ],
+    violet: [
+      '#f3f0ff',
+      '#e5dbff',
+      'd0bfff',
+      '#b197fc',
+      '#9775fa'
+
     ]
   };
   //https://yeun.github.io/open-color/

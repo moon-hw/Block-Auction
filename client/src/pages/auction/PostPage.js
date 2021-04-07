@@ -71,24 +71,45 @@ function PostPage ({history}){
   
   return (
       <div className="postAuctionBlock">
-        <div className="postAuctionHeader">
-          <h2>경매 등록</h2>
-          <p>*필수 입력 항목</p>
-        </div>
+        <div className="wrapper">
+          <div className="postAuctionHeader">
+            <h2>경매 등록</h2>
+            <p>*필수 입력 항목</p>
+          </div>
+          
+          <div className="box">
+            <Content value={Name} title="상품이름" text="상품이름을" onChange={namechangeHandler}/>
+          </div>
 
-        <hr/>
-        <Content value={Name} title="상품이름" onChange={namechangeHandler}/>
-        <Content value={Explain} title="상세설명" onChange={explainchangeHandler}/>
-        <Content value={StartPrice} title="시작가" onChange={startpricechangeHandler}/>
-        <Content value={EndPrice} title="종료가" onChange={endpricechangeHandler}/>
-        {/*Dateform 수정 필요*/}
-        <Dateform value={StartDate} title="경매 시작 일시" onChange={startdatechangeHandler} />
-        <Dateform value={EndDate} title="경매 종료 일시" onChange={enddatechangeHandler}/>
-        <hr/>
+          <div className="box">
+          <Content value={Explain} title="상세설명" onChange={explainchangeHandler}/>
+          </div>
+
+          <div className="box">
+          <Content value={StartPrice} title="시작가" onChange={startpricechangeHandler}/>
+          </div>
+
+          <div className="box">
+          <Content value={EndPrice} title="종료가" onChange={endpricechangeHandler}/>
+          </div>
+
+          {/*Dateform 수정 필요*/}
+
+          <div className="box">
+          <Dateform value={StartDate} title="경매 시작 일시" onChange={startdatechangeHandler} />
+          </div>
+
+          <div className="box">
+          <Dateform value={EndDate} title="경매 종료 일시" onChange={enddatechangeHandler}/>
+          </div>
+
+        </div>
         
-      
-        <button className="postButton" onClick={goBack}>취소</button>
-        <button className="postButton" onClick={submitHandler}>경매등록</button>
+          <div className="btnBlock">
+            <button className="postButton" onClick={goBack}>취소</button>
+            <button className="postButton" onClick={submitHandler}>경매등록</button>
+          </div>
+        
       </div>
   ); 
 };
