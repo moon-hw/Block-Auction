@@ -97,7 +97,7 @@ function PostPage ({history}){
         reservedprice:EndPrice,
         startDate:startDate,
         endDate:endDate,
-        
+        info:info
       })
       .then(async () => {
 
@@ -121,14 +121,12 @@ function PostPage ({history}){
           <div className="postAuctionHeader">
             <h2>경매 등록</h2>
             <p>*필수 입력 항목</p>
-          </div>
-          
-
+          </div>          
         <hr/>
-        <Fileupload title="상품 이미지" value={Image} onChange={imagechangeHandler}/>
-        <Content value={Name} title="상품이름" onChange={namechangeHandler}/>
+        <Fileupload title="상품 이미지" value={Image} onChange={imagechangeHandler} required/>
+        <Content value={Name} title="상품이름" onChange={namechangeHandler} required/>
         <Content value={Explain} title="상세설명" onChange={explainchangeHandler}/>
-        <Content type="number" value={StartPrice} title="시작가" onChange={startpricechangeHandler}/>
+        <Content type="number" value={StartPrice} title="시작가" onChange={startpricechangeHandler}required/>
         <Content type="number" value={EndPrice} title="종료가" onChange={endpricechangeHandler}/>
         
     
