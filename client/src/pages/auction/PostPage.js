@@ -3,7 +3,7 @@ import { auctionApi } from "../../api";
 import Content from '../../auction/content'
 import Fileupload from '../../auction/Fileupload'
 import Dateform from '../../auction/dateform';
-import postAuction from '../../auction/postAuction.css';
+//import postAuction from '../../auction/postAuction.css';
 
 
 
@@ -86,11 +86,7 @@ function PostPage ({history}){
     console.log(endDate);
   }
   
-
-
-  
-  
-//경매등록-입력 데이터 백으로 보내기 
+  //경매등록-입력 데이터 백으로 보내기 
   function submitHandler(){
     
     auctionApi 
@@ -121,13 +117,32 @@ function PostPage ({history}){
   
   return (
       <div className="postAuctionBlock">
-        <div className="postAuctionHeader">
-          <h2>경매 등록</h2>
-          <p>*필수 입력 항목</p>
-        </div>
+        <div className="wrapper">
+          <div className="postAuctionHeader">
+            <h2>경매 등록</h2>
+            <p>*필수 입력 항목</p>
+          </div>
+          
+          <div className="box">
+            <Content value={Name} title="상품이름" text="상품이름을" onChange={namechangeHandler}/>
+          </div>
+
+          <div className="box">
+          <Content value={Explain} title="상세설명" onChange={explainchangeHandler}/>
+          </div>
+
+          <div className="box">
+          <Content value={StartPrice} title="시작가" onChange={startpricechangeHandler}/>
+          </div>
+
+          <div className="box">
+          <Content value={EndPrice} title="종료가" onChange={endpricechangeHandler}/>
+          </div>
+
+          
 
         <hr/>
-        {/*<Fileupload title="상품 이미지" value={Image} onChange={imagechangeHandler}/>*/}
+        <Fileupload title="상품 이미지" value={Image} onChange={imagechangeHandler}/>
         <Content value={Name} title="상품이름" onChange={namechangeHandler}/>
         <Content value={Explain} title="상세설명" onChange={explainchangeHandler}/>
         <Content type="number" value={StartPrice} title="시작가" onChange={startpricechangeHandler}/>
@@ -139,12 +154,11 @@ function PostPage ({history}){
         <hr/>
         <Content value={info} title="판매자 정보" onChange={infoHandler}/>
         
-        
-      
-        <button className="postButton" onClick={goBack}>취소</button>
-        <button className="postButton" onClick={submitHandler}>경매등록</button>
+        </div>
+        <button onChange={goBack}>취소</button>
+        <button onChange={submitHandler}>등록하기</button>
       </div>
   ); 
-};
+}
 
 export default PostPage;
