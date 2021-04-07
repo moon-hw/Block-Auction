@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { userApi } from "../../api";
 import { auth } from "../../firebase.utils";
 import { loginFunctions } from "../../auth/AuthWatchers";
@@ -27,8 +27,7 @@ const AddInformationForm = ()=> {
       } else {
         setEmail('');
         setName('');
-      }
-      
+      }   
       return () => unsubscribeFromAuth();
     })
   }, []);
@@ -102,7 +101,12 @@ const AddInformationForm = ()=> {
               <input type="text" ref={register} name="detailedAddress" />
             : null} 
           </InputWithLabel>
-          <AuthButton type="submit">가입완료</AuthButton>
+
+          <Link to="/">
+          <AuthButton>
+          <button type="submit">가입완료</button>
+          </AuthButton>
+          </Link>
         </form>
       </AuthContent>
      </AuthWrapper>
