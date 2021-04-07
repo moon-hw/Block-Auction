@@ -25,8 +25,8 @@ const OutLine = styled.div`
     padding-left: 2rem;
     padding-right: 2rem;    
     align-items: center;
-
-    
+    justify-content: center;
+    overflow: "hidden";
 }
 `;
 
@@ -47,10 +47,10 @@ export default class SimpleSlider extends Component {
         appendDots: (dots) => (
             <div
               style={{
-                padding: "100px"
+                padding: "1px"
               }}
             >
-              <ul style={{ margin: "0px"}}> {dots} </ul>
+              <ul style={{ margin: "-8%"}}> {dots} </ul>
             </div>
           )
     };
@@ -61,7 +61,7 @@ export default class SimpleSlider extends Component {
              <div className='Ads-pic' >
                     <Slider {...settings}>
                         <div>                    
-                            <img src={weeker} alt="index1"/>
+                            <img src={weeker} alt="index1" height="300px"/>
                         </div>
                 
                         <div>

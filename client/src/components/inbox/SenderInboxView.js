@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {  getSenderInboxByNum } from '../../lib/api/Senderdata';
+import MyPageMenu from '../MyPageMenu';
+
 import './InboxView.css';
 
 const SenderInboxView = ({ history, location, match }) => {
@@ -14,7 +16,7 @@ const SenderInboxView = ({ history, location, match }) => {
   return (
     <>
       
-
+      <MyPageMenu/>
       <div className="InboxViewBlock">
       <h2 className="InboxViewRow">쪽지</h2>
         {

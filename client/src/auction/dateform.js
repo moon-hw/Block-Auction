@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-
 function range(start, end) {
   let array = [];
   for (let i = start; i < end; ++i) {

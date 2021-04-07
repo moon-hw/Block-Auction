@@ -1,13 +1,14 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-
 import { AiOutlineMenu } from 'react-icons/ai';
 import './MyPageMenu.css';
 const MyPageMenu = () => {
     return(
         <div className="mypageMenu">
-            <p className="mypage"><AiOutlineMenu /> 마이페이지</p>
+            <Link to ="/mypage">
+            <p className="mypage"><AiOutlineMenu/>    마이페이지</p>
             <p className="memberInfo">내 회원정보</p>
+            </Link>
             <Link to ="/inbox">
             <p className="inbox">쪽지함</p>
             </Link>
