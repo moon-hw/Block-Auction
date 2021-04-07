@@ -7,5 +7,9 @@ const api = axios.create({
 export const userApi = {
     signUp: (body) => api.post("/users/signup", body),
     checkGoogleSignUped: (body) => api.post("/users/checkgoogleexist", body),
-    postAuction: (body) => api.post("/users/postauction", body),
+}
+
+export const auctionApi={
+  postAuction: (body) => api.post("/auction/auctionpost", body),
+  postImage:(body) => api.post("/auction/postimage", body),
 }

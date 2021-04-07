@@ -1,41 +1,31 @@
-import React, { useState } from "react";
+import React, { Component ,useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 
-function range(start, end) {
-  let array = [];
-  for (let i = start; i < end; ++i) {
-    array.push({key:i, value:i});
-  }
-  return array;
-}
 
-const hours = range(0,24);
+function ReactDatepicker (props) {
+  
+  const [date, setDate] = useState(new Date());
 
-export default function ReactDatepicker(props) {
-  const [basicDate, setBasicDate] = useState(new Date());
-  const [hour, setHour]=useState(1);
-  const hourchangeHandler=(event) =>{
-    setHour(event.currentTarget.value)
+  const datehandleChange = (time,event) =>{
+    setDate(time);
+    props.onChange(date)
   }
   
-  console.log(hour);
   return (
     <div>
         {props.title}
-
-
-        <DatePicker
-          selected={basicDate}
-          onChange={(date) => setBasicDate(date)}
-        />
+       <DatePicker value={date}
+      selected={date}
+      onChange={datehandleChange}
+      showTimeSelect
+      dateFormat="yyyy/MM/dd EE hh:mm"
+    />
       <br/>
-        <select onchange={hourchangeHandler}>
-          {hours.map(item =>(
-          <option  placeholder="시간" key={item.key}>{item.value}</option>
-          ))}
-          </select>
+      
     </div>
   );
+  
 }
+export default ReactDatepicker;
