@@ -1,11 +1,12 @@
 import React from 'react';
 import MyPageMenu from '../../components/MyPageMenu';
-
+import { List } from '../../components/list';
 const MyAuctionList = () => {
     return(
         <div>
-        <h2>내 경매 목록</h2>
         <MyPageMenu/>
+        내 경매 목록
+        <List></List>
         </div>
     );
 };

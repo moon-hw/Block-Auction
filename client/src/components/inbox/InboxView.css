@@ -1,6 +1,12 @@
 .InboxViewBlock {
-  width: 60%;
-  margin: 0 auto;
+  width: 30%;
+  height: 100%;
+  padding: 5px;
+  margin: 7%;
+  position: absolute;
+  top: 60%;
+  left: 45%;
+  transform: translate(-50%, -50%);
 }
 
 .backToinbox {

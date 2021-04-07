@@ -11,6 +11,12 @@ const InboxBlock = styled.div`
   display: flex;
   align-items:center;
   justify-content: center;
+  position: absolute;
+  top: 43%;
+  left: 55%;
+  height: 100%;
+  width: 50%;
+  transform: translate(-50%, -50%);
 `;
 const InboxList = props => {
   const [ dataList, setDataList ] = useState([]);
@@ -21,8 +27,9 @@ const InboxList = props => {
 
   return (
     <>
-      <InboxBlock>
+      
         <MyPageMenu/>
+        <InboxBlock>
       <CommonTable headersName={['번호', '보낸사람', '내용', '날짜', '읽음확인']}>
         {
           dataList ? dataList.map((item, index) => {
