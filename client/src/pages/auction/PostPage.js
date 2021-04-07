@@ -123,23 +123,6 @@ function PostPage ({history}){
             <p>*필수 입력 항목</p>
           </div>
           
-          <div className="box">
-            <Content value={Name} title="상품이름" text="상품이름을" onChange={namechangeHandler}/>
-          </div>
-
-          <div className="box">
-          <Content value={Explain} title="상세설명" onChange={explainchangeHandler}/>
-          </div>
-
-          <div className="box">
-          <Content value={StartPrice} title="시작가" onChange={startpricechangeHandler}/>
-          </div>
-
-          <div className="box">
-          <Content value={EndPrice} title="종료가" onChange={endpricechangeHandler}/>
-          </div>
-
-          
 
         <hr/>
         <Fileupload title="상품 이미지" value={Image} onChange={imagechangeHandler}/>
@@ -155,8 +138,8 @@ function PostPage ({history}){
         <Content value={info} title="판매자 정보" onChange={infoHandler}/>
         
         </div>
-        <button onChange={goBack}>취소</button>
-        <button onChange={submitHandler}>등록하기</button>
+        <button className="postButton" onClick={goBack}>취소</button>
+        <button className="postButton" onClick={submitHandler}>경매등록</button>
       </div>
   ); 
 }
