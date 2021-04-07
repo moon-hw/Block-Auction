@@ -1,10 +1,14 @@
 .inboxMenu {
   width: 100%;
-  margin: 0 auto;
+  margin: 1%;
   display: inline-flex;
   align-items: center;
   justify-content: flex-end;
   padding-right: 200px;
+  position: absolute;
+  top: 20%;
+  left: 38%;
+  transform: translate(-50%, -50%);
 }
 
 .receiverInbox {
@@ -15,7 +19,7 @@
 }
 
 .receiverInbox:hover {
-  background-color: #bdbdc7;
+  background-color: #8e8ebf;
   cursor: pointer;
 }
 

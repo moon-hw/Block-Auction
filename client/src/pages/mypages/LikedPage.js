@@ -1,11 +1,14 @@
 import React from 'react';
 import MyPageMenu from '../../components/MyPageMenu';
+import { CardList} from '../../components/list';
+
 const LikedPage = () => {
     return (
-    <div>
-        <h1>찜목록 페이지</h1>
+        <div>
         <MyPageMenu/>
-    </div>
+            <CardList>
+            </CardList>
+        </div>
     ); 
 };
 
