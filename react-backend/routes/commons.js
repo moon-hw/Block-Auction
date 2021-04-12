@@ -26,6 +26,7 @@ const firestore = firebaseAdmin.firestore;
 const DB = {
   users: firestore().collection("users"),
   auctionInfo:firestore().collection("auctionInfo"),
+  inbox:firestore().collection("inbox")
 }
 
 const tokenExporter = (headers) => {
@@ -43,10 +44,21 @@ const tokenExporter = (headers) => {
     }
   };
 
+  const findStrInArray = (strToFind, array) => {
+    let found = false;
+    array.forEach((item) => {
+      if (!found) {
+        found = strToFind === item;
+      }
+    });
+    return found;
+  };
+
 module.exports = {
   DB,
   firestore,
   firebaseAdmin,
   ERRORS,
-  tokenExporter
+  tokenExporter,
+  findStrInArray,
 }; 

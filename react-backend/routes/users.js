@@ -30,6 +30,21 @@ asyncRouter.post("/checkgoogleexist", async (req, res, next) => {
     .catch((err) => next(err.message));
 });
 
+/*//mypage 확인 및 
+asyncRouter.post("/mypage", async(req,res,next)=>{
+  const {body} = req;
+
+  return DB.users
+  .doc(uid)
+  .get()
+  .then(async (docSnapshot) => {
+    if(docSnapshot.exists){
+      
+    }
+  })
+
+})*/
+
 // 회원가입
 asyncRouter.post("/signup", async(req,res,next)=>{
   const {body} =req;
