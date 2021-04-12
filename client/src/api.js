@@ -59,3 +59,6 @@ export const auctionApi = {
     postAuction: (body) => api.post("/auctions/postauction", body),
     postImage:(body) => api.post("/auctions/postimage", body),
 }
+
+
+
