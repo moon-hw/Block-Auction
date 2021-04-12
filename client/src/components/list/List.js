@@ -3,6 +3,7 @@ import styled from "styled-components";
 import weeker from "../../lib/weeker.png";
 
 const Positioner = styled.div`
+<<<<<<< HEAD
   height: 500px;
   width: 800px;
   border: 1px solid red;
@@ -10,6 +11,18 @@ const Positioner = styled.div`
   top: 30%;
   left: 35%;
 `;
+=======
+   
+`;
+/*
+  height: 500px;
+    width: 800px;
+    border: 1px solid red;
+    position: absolute;
+    top: 30%;
+    left: 35%;
+ */
+>>>>>>> upstream/main
 
 const Row = styled.div`
   border: 1px solid pink;
@@ -56,79 +69,40 @@ const Date = styled.div`
   width: 300px;
   display: inline;
 `;
-const List = () => {
-  return (
-    <Positioner>
-      <Row>
-        <Img>
-          <img src={weeker} alt="" />
-        </Img>
 
-        <Content>
-          <h2>아이폰 12</h2>
-          <p>경매 상세 정보</p>
-          <span>시작일 : 2021.01.01</span>
-          <span>종료일 : 2021.01.01</span>
-        </Content>
+const List = (props) => {
+    return(
+        <Positioner>
+            <Row>
+                <Img>
+                <img src={weeker} alt=""/>
+                </Img>
 
-        <Price>
-          <p>경매 시작 가격 : 50000원</p>
-        </Price>
+                <Content>
+                    <h2>{props.title}</h2>
+                    <p>{props.info}</p>
+                    <span>시작일 : {props.startDate}</span>
+                    <span>종료일 : {props.endDate}</span>
+                </Content>
 
-        <Buttons>
-          <p>경매상태 아이콘 자리 </p>
-          <button>수정</button>
-          <button>삭제</button>
-        </Buttons>
-      </Row>
+                <Price>
+                    <p>경매 시작 가격 : {props.startprice}</p>        
+                </Price>
 
-      <Row>
-        <Img>
-          <img src={weeker} alt="" />
-        </Img>
+                <Buttons>
+                    <p>경매상태 아이콘 자리 </p>
+                    <button>수정</button>
+                    <button>삭제</button>
+                </Buttons>
+            </Row>
 
-        <Content>
-          <h2>아이폰 12</h2>
-          <p>경매 상세 정보</p>
-          <span>시작일 : 2021.01.01</span>
-          <span>종료일 : 2021.01.01</span>
-        </Content>
+            
+           
 
-        <Price>
-          <p>경매 시작 가격 : 50000원</p>
-        </Price>
 
-        <Buttons>
-          <p>경매상태 아이콘 자리 </p>
-          <button>수정</button>
-          <button>삭제</button>
-        </Buttons>
-      </Row>
-
-      <Row>
-        <Img>
-          <img src={weeker} alt="" />
-        </Img>
-
-        <Content>
-          <h2>아이폰 12</h2>
-          <p>경매 상세 정보</p>
-          <span>시작일 : 2021.01.01</span>
-          <span>종료일 : 2021.01.01</span>
-        </Content>
-
-        <Price>
-          <p>경매 시작 가격 : 50000원</p>
-        </Price>
-
-        <Buttons>
-          <p>경매상태 아이콘 자리 </p>
-          <button>수정</button>
-          <button>삭제</button>
-        </Buttons>
-      </Row>
-    </Positioner>
-  );
+        </Positioner>
+    );
+>>>>>>> upstream/main
 };
 
 export default List;
