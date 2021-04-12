@@ -48,7 +48,7 @@ function PostPage (){
   }
   
   //경매등록-입력 데이터 백으로 보내기 
-  const onFormSubmit = (data) => {
+  const onFormSubmit = async (data) => {
     var auctionFormData = new FormData();
     const nowTime = moment().format('YYYY-MM-DD HH:mm');
     const userId = await loginFunctions.getUserInfo().uid;
