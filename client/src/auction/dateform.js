@@ -19,7 +19,7 @@ function ReactDatepicker (props) {
       selected={date}
       onChange={datehandleChange}
       showTimeSelect
-      dateFormat="yyyy/MM/dd EE hh:mm"
+      dateFormat="yyyy/MM/dd hh:mm"
     />
       <br/>
       
