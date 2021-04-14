@@ -27,12 +27,16 @@ asyncRouter.post("/upload", upload.any(), (req, res, next) => {
 
 asyncRouter.post("/getauctionlist", async(req,res,next)=>{
   let list=[];
+  let each;
+
   var docRef = DB.auctionInfo;
   let getDoc = docRef.get()
       .then(doc => {
           doc.forEach( item=>{  
-              //console.log(item.data());
-              list.push( item.data());
+              console.log(item.data())
+              each=item.data();
+              each["_id"]=item.id;
+              list.push( each);
           });
           console.log(list);
           res.status(200).send({success:true, list});
