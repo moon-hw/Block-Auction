@@ -54,8 +54,36 @@ export const userApi = {
     
 
 */
+
+const formDataConfig = {
+    header:{'content-type':'multipart/form-data'}
+}
 export const auctionApi = {
-    getAuctionList: (body) => api.post("/auctions/getauctionlist"),
-    postAuction: (body) => api.post("/auctions/postauction", body),
+    getAuctionList: async (body) => {
+      const { skip } = body;
+      let lists=[];
+
+      let first=firestore
+          .collection("auctionInfo")
+          .orderBy("startDate")
+          .limit(skip);
+
+      let getDoc = await first
+          .get()
+          .then((doc) => {
+            doc.forEach((item) => {
+              
+              lists.push(item.data());
+            });
+            console.log(lists);
+            
+          });
+          
+       return lists;
+  },
+    postAuction: (body) => api.post("/auctions/upload", body, formDataConfig),
     postImage:(body) => api.post("/auctions/postimage", body),
 }
+
+
+
