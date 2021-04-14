@@ -60,9 +60,6 @@ const formDataConfig = {
 }
 export const auctionApi = {
     getAuctionList: (body) => api.post("/auctions/getauctionlist"),
-    postAuction: (body) => api.post("/auctions/upload", body, formDataConfig),
+    postAuction: (body) => api.post("/auctions/postauction", body, formDataConfig),
     postImage:(body) => api.post("/auctions/postimage", body),
 }
-
-
-
