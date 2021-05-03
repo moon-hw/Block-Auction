@@ -23,7 +23,7 @@ import SenderInboxList from "./components/inbox/SenderInboxList";
 import SenderInboxView from "./components/inbox/SenderInboxView";
 import JoinedList from "./pages/mypages/JoinedList";
 import MyAuctionList from "./pages/mypages/MyAuctionList";
-
+import DetailPage from "./pages/auction/DetailPage";
 const App = ({location}) => {
   const exclusionArray = [
     '/signup',
@@ -55,6 +55,7 @@ const App = ({location}) => {
           <Route path="/sports" component={SportsofList}/>
           <Route path="/thing" component={ThingofList}/>
           <Route path="/postAuction" component={PostPage}/>
+          <Route path="/auction/:auctionId" component={DetailPage}/>
           <Route component={NotFound} />
         </Switch>
       </main>
