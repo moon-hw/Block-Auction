@@ -47,22 +47,29 @@ function PostPage (){
     }
   }
   
+  const dateFormatting = (Date) => {
+    const date = moment(Date).format('YYYY-MM-DD HH:mm');
+    return date;
+  }
   //경매등록-입력 데이터 백으로 보내기 
   const onFormSubmit = async (data) => {
     var auctionFormData = new FormData();
-    const nowTime = moment().format('YYYY-MM-DD HH:mm');
+    const nowTime = dateFormatting();
     const userId = await loginFunctions.getUserInfo().uid;
+    const sDate = dateFormatting(data.startDate);
+    const eDate = dateFormatting(data.endDate);
+    const categoryData = JSON.stringify(data.category);
     
     auctionFormData.append('productImage', imgFile);
     auctionFormData.append('title', data.name);
     auctionFormData.append('content', data.explain);
     auctionFormData.append('startPrice', data.startPrice);
     auctionFormData.append('reservedPrice', data.endPrice);
-    auctionFormData.append('startDate', data.startDate);
-    auctionFormData.append('endDate', data.endDate);
+    auctionFormData.append('startDate', sDate);
+    auctionFormData.append('endDate', eDate);
     auctionFormData.append('uploadTime', nowTime);
     auctionFormData.append('sellerId', userId);
-    auctionFormData.append('category', data.category)
+    auctionFormData.append("category", categoryData);
     auctionFormData.append('view', 0);
     auctionFormData.append('wish', 0);
     auctionFormData.append('sellingFailure', 0);
@@ -70,11 +77,7 @@ function PostPage (){
 
     for (let key of auctionFormData.entries())
       console.log(`${key}`);
-      
-    const config = {
-      header:{'content-type':'multipart/form-data'}
-    }
-
+  
     if (loading) return;
     setLoading(true);
     
@@ -102,11 +105,11 @@ function PostPage (){
           </div>          
         <hr/>
         <form onSubmit={handleSubmit(onFormSubmit, onErrors)}>
-          <input onChange={imagechangeHandler} type="file" name="title" ref={register({ required:true, })} />
+          <input onChange={imagechangeHandler} type="file" name="img" ref={register({ required:true, })} />
           {errors.title && '상품 이미지를 등록해주세요'}
           {imgBase64 ? (
             <>
-              <img src={imgBase64} />
+              <img src={imgBase64} alt="상품 이미지 미리보기"/>
             </>
           ) : (
             ""

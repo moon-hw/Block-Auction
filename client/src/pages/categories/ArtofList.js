@@ -1,10 +1,7 @@
-import React from 'react';
+import React from "react";
+
 const ArtofList = () => {
-    return(
-        <div>
-            <h1>카테고리 예술작품 리스트 화면</h1>
-        </div>
-    );
+  return <div>예술 작품 리스트</div>;
 };
 
 export default ArtofList;

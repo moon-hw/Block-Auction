@@ -22,6 +22,7 @@ const Input = styled.div`
   font-size: 1.2rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
+  overflow: hidden;
   input {
     width: 100%;
     outline: none;
@@ -39,7 +40,7 @@ const Input = styled.div`
 const InputWithLabel = ({ label, ...rest }) => (
   <Wrapper>
     <Label>{label}</Label>
-    <Input {...rest} />
+    <Input {...rest}></Input>
   </Wrapper>
 );
 

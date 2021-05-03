@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Palette from "../../lib/styles/Palette";
 
 const Positioner = styled.div`
   position: absolute;
@@ -7,25 +8,18 @@ const Positioner = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
 `;
-
-const ShadowedBox = styled.div`
-  width: 400px;
-  height: 400px;
-`;
-
 const Contents = styled.div`
-  padding: 2rem;
+  background: ${Palette.gray[2]};
+  width: 50rem;
   height: auto;
 `;
 
-const MyPageWrapper = ({ children }) => {
+const DetailWrapper = ({ children }) => {
   return (
     <Positioner>
-      <ShadowedBox>
-        <Contents>{children}</Contents>
-      </ShadowedBox>
+      <Contents>{children}</Contents>
     </Positioner>
   );
 };
 
-export default MyPageWrapper;
+export default DetailWrapper;

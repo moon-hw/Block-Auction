@@ -1,0 +1,10 @@
+.auction_img {
+  max-height: 400px;
+  max-width: 400px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  align-items: center;
+  justify-content: center;
+  overflow: "hidden";
+  border: 1px solid red;
+}

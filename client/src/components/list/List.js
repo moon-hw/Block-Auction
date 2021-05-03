@@ -3,7 +3,6 @@ import styled from "styled-components";
 import weeker from "../../lib/weeker.png";
 
 const Positioner = styled.div`
-<<<<<<< HEAD
   height: 500px;
   width: 800px;
   border: 1px solid red;
@@ -11,18 +10,6 @@ const Positioner = styled.div`
   top: 30%;
   left: 35%;
 `;
-=======
-   
-`;
-/*
-  height: 500px;
-    width: 800px;
-    border: 1px solid red;
-    position: absolute;
-    top: 30%;
-    left: 35%;
- */
->>>>>>> upstream/main
 
 const Row = styled.div`
   border: 1px solid pink;
@@ -71,38 +58,32 @@ const Date = styled.div`
 `;
 
 const List = (props) => {
-    return(
-        <Positioner>
-            <Row>
-                <Img>
-                <img src={weeker} alt=""/>
-                </Img>
+  return (
+    <Positioner>
+      <Row>
+        <Img>
+          <img src={weeker} alt="" />
+        </Img>
 
-                <Content>
-                    <h2>{props.title}</h2>
-                    <p>{props.info}</p>
-                    <span>시작일 : {props.startDate}</span>
-                    <span>종료일 : {props.endDate}</span>
-                </Content>
+        <Content>
+          <h2>{props.title}</h2>
+          <p>{props.info}</p>
+          <span>시작일 : {props.startDate}</span>
+          <span>종료일 : {props.endDate}</span>
+        </Content>
 
-                <Price>
-                    <p>경매 시작 가격 : {props.startprice}</p>        
-                </Price>
+        <Price>
+          <p>경매 시작 가격 : {props.startprice}</p>
+        </Price>
 
-                <Buttons>
-                    <p>경매상태 아이콘 자리 </p>
-                    <button>수정</button>
-                    <button>삭제</button>
-                </Buttons>
-            </Row>
-
-            
-           
-
-
-        </Positioner>
-    );
->>>>>>> upstream/main
+        <Buttons>
+          <p>경매상태 아이콘 자리 </p>
+          <button>수정</button>
+          <button>삭제</button>
+        </Buttons>
+      </Row>
+    </Positioner>
+  );
 };
 
 export default List;
