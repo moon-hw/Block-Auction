@@ -37,8 +37,8 @@ const inboxdata = [
   ];
   
   const getInboxByNum = num => {
-    const array = inboxdata.filter(x => x.num == num);
-    if (array.length == 1) {
+    const array = inboxdata.filter(x => x.num === num);
+    if (array.length === 1) {
       return array[0];
     }
     return null;

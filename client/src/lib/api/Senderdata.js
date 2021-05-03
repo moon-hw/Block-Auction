@@ -37,8 +37,8 @@ const senderdata = [
   ];
   
   const getSenderInboxByNum = num => {
-    const array = senderdata.filter(x => x.num == num);
-    if (array.length == 1) {
+    const array = senderdata.filter(x => x.num === num);
+    if (array.length === 1) {
       return array[0];
     }
     return null;

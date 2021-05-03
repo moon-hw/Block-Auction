@@ -44,9 +44,9 @@
     "start": "npm-run-all --parallel start:**",
     "start-m": "npm-run-all --parallel start-m:**",
     "start:client": "react-scripts start",
-    "start:server": "set PORT=3001&&node ../react-backend/bin/www",
+    "start:server": "set PORT=3001&&nodemon ../react-backend/bin/www",
     "start-m:client": "react-scripts start",
-    "start-m:server": "export PORT=3001&&node ../react-backend/bin/www",
+    "start-m:server": "export PORT=3001&&nodemon ../react-backend/bin/www",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

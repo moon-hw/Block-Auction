@@ -59,6 +59,7 @@ const formDataConfig = {
     header:{'content-type':'multipart/form-data'}
 }
 export const auctionApi = {
+    postAuction: (body) => api.post("/auctions/postauction", body, formDataConfig),
     getAuctionList: async (body) => {
       const { skip } = body;
       let lists=[];
@@ -101,6 +102,3 @@ export const auctionApi = {
     postAuction: (body) => api.post("/auctions/upload", body, formDataConfig),
     postImage:(body) => api.post("/auctions/postimage", body),
 }
-
-
-
