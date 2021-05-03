@@ -21,6 +21,37 @@ const {
   tokenExporter,
 }=require("./commons");
 
+asyncRouter.post("/upload", upload.any(), (req, res, next) => {
+  console.log(req.files);
+  console.log(req.body);
+})
+
+asyncRouter.post("/getauctionlist", async(req,res,next)=>{
+  let list=[];
+  let each;
+
+  var docRef = DB.auctionInfo;
+  let getDoc = docRef.get()
+      .then(doc => {
+          doc.forEach( item=>{  
+              console.log(item.data())
+              each=item.data();
+              each["_id"]=item.id;
+              list.push( each);
+          });
+          console.log(list);
+          res.status(200).send({success:true, list});
+      })
+      .catch(err => {
+          console.log('Error getting document', err);
+          return next(err);
+      });
+  console.log("done"); 
+  });
+
+// asyncRouter.post("/postauction", async(req,res,next)=>{
+//   const { body } = req;
+//   console.log({body});
 asyncRouter.post("/postauction", upload.any('img'), (req, res, next) => {
   const body = JSON.parse(JSON.stringify(req.body));
   

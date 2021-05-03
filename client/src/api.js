@@ -63,6 +63,7 @@ export const auctionApi = {
     getAuctionList: async (body) => {
       const { skip } = body;
       let lists=[];
+      let each;
 
       let first=firestore
           .collection("auctionInfo")
@@ -73,8 +74,11 @@ export const auctionApi = {
           .get()
           .then((doc) => {
             doc.forEach((item) => {
-              
-              lists.push(item.data());
+              console.log(item.data())
+              each=item.data();
+              each["_id"]=item.id;
+              console.log(each);
+              lists.push(each);
             });
             console.log(lists);
             
@@ -82,5 +86,19 @@ export const auctionApi = {
           
        return lists;
   },
+    getAuctiondetail: async (body)=>{
+      const { auctionId }=body;
+      console.log({auctionId});
+
+      let first=await firestore
+          .collection("auctionInfo")
+          .doc(auctionId)
+          .get();
+        
+      return first.data();
+
+     
+    },
+    postAuction: (body) => api.post("/auctions/upload", body, formDataConfig),
     postImage:(body) => api.post("/auctions/postimage", body),
 }

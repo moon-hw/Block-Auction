@@ -64,6 +64,7 @@ const App = ({ location }) => {
           <Route path="/thing" component={ThingofList} />
           <Route path="/postAuction" component={PostPage} />
           <Route path="/detail" component={DetailPage} />
+          <Route path="/auction/:auctionId" component={DetailPage}/>
           <Route component={NotFound} />
         </Switch>
       </main>

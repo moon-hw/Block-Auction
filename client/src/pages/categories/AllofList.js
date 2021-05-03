@@ -31,13 +31,13 @@ function AllofList () {
   const renderLists=(Products.map((product,index)=>{
    
     
-    return <List title={product.title}
+    return <a href={`/auction/${product._id}`} ><List title={product.title}
                  info={product.info}
                  startDate={product.startDate}
                  endDate={product.endDate}
                  startprice={product.startPrice}
                  key={index}>
-            </List>
+            </List></a>
       
    
   }));
