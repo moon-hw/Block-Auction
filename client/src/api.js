@@ -15,6 +15,7 @@ export const userApi = {
             .doc(uid)
             .get()
             .then(doc => doc.data());
+            
     },
     getDibs: (body) => api.post("/auctions/getdibs"),
 }
@@ -77,7 +78,7 @@ export const auctionApi = {
       }else{
         first= await firestore
           .collection("auctionInfo")
-          .where(document.get("value"), '==', cate)
+          .where("category","==",cate)
           .orderBy("startDate")
           .limit(skip);
       };

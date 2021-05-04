@@ -44,8 +44,8 @@ function AllofList () {
 
   const loadmoreHandler= () =>{
     let body={
-      skip:Point
-      
+      skip:Point,
+      cate:"ALL"
     }
     console.log(Products);
     getProduct(body);

@@ -44,8 +44,8 @@ function AccessoryofList () {
 
   const loadmoreHandler= () =>{
     let body={
-      skip:Point
-      
+      skip:Point,
+      cate:"ACC"
     }
     console.log(Products);
     getProduct(body);

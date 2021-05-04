@@ -2,14 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import weeker from "../../lib/weeker.png";
 
-const Positioner = styled.div`
+/*const Positioner = styled.div`
   height: 500px;
   width: 800px;
   border: 1px solid red;
   position: absolute;
   top: 30%;
   left: 35%;
-`;
+`;*/
 
 const Row = styled.div`
   border: 1px solid pink;
@@ -56,7 +56,14 @@ const Date = styled.div`
   width: 300px;
   display: inline;
 `;
-
+const Positioner = styled.div`
+`;
+/*const Row = styled.div``;
+const Img = styled.div``;
+const Content = styled.div``;
+const Price = styled.div``;
+const Buttons = styled.div``;
+const Date = styled.div``;*/
 const List = (props) => {
   return (
     <Positioner>
