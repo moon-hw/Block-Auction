@@ -37,21 +37,24 @@ const MyPage = () => {
   const onChange = (e) => {
     dispatch(e.target);
   };
+
   useEffect(() => {
-    console.log("렌더링이 완료되었습니다!");
-    console.log({
-      userprofile,
-      state,
-    });
-  });
+    
+    getInfo();
+  },[]);
 
-  const userInfo = loginFunctions.getUserInfo();
+  
+  async function getInfo(){
+    const userInfo = loginFunctions.getUserInfo();
   if (!userInfo) return;
-  userApi
-    .getUserData({ uid: userInfo.uid })
-    .then((data) => console.log(data))
+      await userApi.getUserData({ uid: userInfo.uid })
+    .then((data) =>{
+      console.log(data)
+      setuserProfile(data);
+      console.log(userprofile);
+    })
     .catch((err) => console.log(err));
-
+  }
   const UserInfo = (userInfo) => {
     firestore
       .collection("users")
@@ -96,20 +99,20 @@ const MyPage = () => {
       <MyPageWrapper>
         <AuthContent title="회원 기본 정보 기입">
           <InputWithLabel label="이름" name="name">
-            <input name="name" value={name} onChange={onChange} />
+            <input name="name" value={userprofile.name} onChange={onChange} />
           </InputWithLabel>
           <InputWithLabel label="이메일" name="email">
-            <input name="email" value={email} onChange={onChange} />
+            <input name="email" value={userprofile.email} onChange={onChange} />
           </InputWithLabel>
           <InputWithLabel label="가상계좌주소" name="account">
-            <input name="account" value={account} onChange={onChange} />
+            <input name="account" value={userprofile.account} onChange={onChange} />
           </InputWithLabel>
           <InputWithLabel label="별명" name="nickName">
-            <input name="nickName" value={nickName} onChange={onChange} />
+            <input name="nickName" value={userprofile.nickName} onChange={onChange} />
           </InputWithLabel>
           <button>중복검사</button>
           <InputWithLabel label="연락처" name="phoneNumber">
-            <input name="phoneNumber" value={phoneNumber} onChange={onChange} />
+            <input name="phoneNumber" value={userprofile.phoneNumber} onChange={onChange} />
           </InputWithLabel>
           <InputWithLabel label="주소" name="Address"></InputWithLabel>
           <AuthContent detail="상세정보" />
