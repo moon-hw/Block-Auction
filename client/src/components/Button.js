@@ -1,6 +1,6 @@
-import React from 'react';
-import styled, {css} from 'styled-components';
-import Palette from '../lib/styles/Palette';
+import React from "react";
+import styled, { css } from "styled-components";
+import Palette from "../lib/styles/Palette";
 
 const StyledButton = styled.button`
   border: none;
@@ -15,7 +15,7 @@ const StyledButton = styled.button`
   &:hover {
     background: ${Palette.gray[5]};
   }
-  ${props =>
+  ${(props) =>
     props.fullWidth &&
     css`
       padding-top: 0.75rem;
@@ -23,7 +23,7 @@ const StyledButton = styled.button`
       width: 100%;
       font-size: 1.125rem;
     `}
-  ${props =>
+  ${(props) =>
     props.cyan &&
     css`
       background: ${Palette.cyan[5]};
@@ -33,6 +33,6 @@ const StyledButton = styled.button`
     `}
 `;
 
-const Button = props => <StyledButton {...props} />;
+const Button = (props) => <StyledButton {...props} />;
 
 export default Button;

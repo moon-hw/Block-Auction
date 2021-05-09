@@ -3,8 +3,9 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var cors = require('cors');
-require("dotenv").config();
+var cors = require('cors'); // proxy cors 설정
+
+require("dotenv").config(); // env 설정
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -25,7 +26,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(cors(corsOptions));
+app.use(cors(corsOptions)); // proxy cors 설정
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

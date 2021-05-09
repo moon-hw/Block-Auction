@@ -15,6 +15,7 @@ export const userApi = {
             .doc(uid)
             .get()
             .then(doc => doc.data());
+            
     },
     getDibs: (body) => api.post("/auctions/getdibs"),
 }
@@ -60,20 +61,37 @@ const formDataConfig = {
 }
 export const auctionApi = {
     getAuctionList: async (body) => {
-      const { skip } = body;
+      
+      const { skip ,cate} = body;
+      
+      console.log(skip);
+      console.log(cate);
       let lists=[];
+      let each;
+      let first;
 
-      let first=firestore
+      if(cate === "ALL"){
+        first= await firestore
+            .collection("auctionInfo")
+            .orderBy("startDate")
+            .limit(skip);
+      }else{
+        first= await firestore
           .collection("auctionInfo")
+          .where("category","==",cate)
           .orderBy("startDate")
           .limit(skip);
+      };
 
       let getDoc = await first
           .get()
           .then((doc) => {
             doc.forEach((item) => {
-              
-              lists.push(item.data());
+              console.log(item.data())
+              each=item.data();
+              each["_id"]=item.id;
+              //console.log(each);
+              lists.push(each);
             });
             console.log(lists);
             
@@ -81,9 +99,19 @@ export const auctionApi = {
           
        return lists;
   },
+    getAuctiondetail: async (body)=>{
+      const { auctionId }=body;
+      console.log({auctionId});
+
+      let first=await firestore
+          .collection("auctionInfo")
+          .doc(auctionId)
+          .get();
+        
+      return first.data();
+
+     
+    },
     postAuction: (body) => api.post("/auctions/upload", body, formDataConfig),
     postImage:(body) => api.post("/auctions/postimage", body),
 }
-
-
-

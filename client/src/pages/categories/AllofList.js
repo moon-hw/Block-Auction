@@ -9,8 +9,8 @@ function AllofList () {
   useEffect(()=>{
     
     let body={
-      skip:Point
-      
+      skip:Point,
+      cate:"ALL"
     }
     getProduct(body)
       
@@ -31,21 +31,21 @@ function AllofList () {
   const renderLists=(Products.map((product,index)=>{
    
     
-    return <List title={product.title}
+    return <a href={`/auction/${product._id}`} ><List title={product.title}
                  info={product.info}
                  startDate={product.startDate}
                  endDate={product.endDate}
                  startprice={product.startPrice}
                  key={index}>
-            </List>
+            </List></a>
       
    
   }));
 
   const loadmoreHandler= () =>{
     let body={
-      skip:Point
-      
+      skip:Point,
+      cate:"ALL"
     }
     console.log(Products);
     getProduct(body);
@@ -55,6 +55,7 @@ function AllofList () {
     return(
         <div>
             <h1>카테고리 전체보기 리스트 화면</h1>
+            
             
             {renderLists}
             
